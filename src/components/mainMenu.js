@@ -17,7 +17,7 @@ export default () => (
       </Button>
     </View>
     <View style={{ height: 45, top: 30 }}>
-      <Button>
+      <Button onPress={Actions.orders}>
         Orders
       </Button>
     </View>
