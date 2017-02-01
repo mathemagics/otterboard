@@ -3,6 +3,7 @@ import { Router, Scene } from 'react-native-router-flux';
 import LoginForm from './components/loginForm';
 import MainMenu from './components/mainMenu';
 import Products from './components/products';
+import Purveyors from './components/purveyors';
 
 const RouterComponent = () => (
   <Router
@@ -33,6 +34,11 @@ const RouterComponent = () => (
         key='products'
         component={Products}
         title="Products"
+      />
+      <Scene
+        key='purveyors'
+        component={Purveyors}
+        title="Purveyors"
       />
     </Scene>
 </Router>
