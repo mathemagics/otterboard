@@ -10,7 +10,7 @@ import Orders from './components/orders';
 
 const RouterComponent = () => (
   <Router
-    sceneStyle={{ paddingTop: 85, backgroundColor: '#fff' }}
+    sceneStyle={{ paddingTop: 75, backgroundColor: '#fff' }}
     hideNavBar={false}
     navigationBarStyle={{
       backgroundColor: '#1A3461',

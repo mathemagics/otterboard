@@ -35,6 +35,7 @@ class LoginForm extends Component {
         style={buttonStyle}
         textStyle={buttonTextStyle}
         onPress={this.onSigninPress.bind(this)}
+        activeOpacity={0.4}
       >
         Sign In
       </Button>;
@@ -93,7 +94,6 @@ const styles = {
     marginRight: 30,
     borderColor: '#008445',
     backgroundColor: '#108445',
-    activeOpacity: '0.9',
   },
   buttonTextStyle: {
     color: '#fff',
