@@ -1,53 +1,25 @@
 import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
+import _ from 'lodash';
+
+const CATEGORIES = {
+  meat: '#a23',
+  seafood: '#1cc',
+  dairy: '#ddd',
+  produce: '#2a2',
+  other: '#222',
+  nuts: '#c71',
+};
 
 export default () => (
   <View style={styles.container}>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#fc3' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#3cf' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#a23' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#aaa' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#d0b' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#1c1' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#fc3' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#3cf' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight>
-      <View style={{ ...styles.item, backgroundColor: '#a23' }}>
-        <Text style={styles.text}>Food</Text>
-      </View>
-    </TouchableHighlight>
+    {_.map(CATEGORIES, (val, index) => (
+      <TouchableHighlight>
+        <View style={{ ...styles.item, backgroundColor: val }}>
+          <Text style={styles.text}>{index}</Text>
+        </View>
+      </TouchableHighlight>
+    ))}
   </View>
 );
 

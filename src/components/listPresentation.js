@@ -23,11 +23,11 @@ export default (props) => (
 
 const styles = {
    listContainer: {
-      paddingTop: 22
+      paddingTop: 22,
+      marginLeft: 20,
    },
    listItem: {
-      fontSize: 30,
+      fontSize: 26,
       fontWeight: 'bold',
-      textAlign: 'center',
    }
 };

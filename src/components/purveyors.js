@@ -8,8 +8,7 @@ export default class Purveyors extends Component {
       const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
       this.state = {
          dataSource: ds.cloneWithRows([
-            'Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6', 'Item7', 'Item8',
-               'Item9', 'Item10'
+            'Yen Brothers', 'Jim Koo', 'Shaw Farms', 'Beacoup Bakery', 'GFS'
          ])
       };
    }
