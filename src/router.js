@@ -1,5 +1,7 @@
 import React from 'react';
 import { Router, Scene } from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 import LoginForm from './components/loginForm';
 import MainMenu from './components/mainMenu';
 import Products from './components/products';
@@ -8,12 +10,14 @@ import Orders from './components/orders';
 
 const RouterComponent = () => (
   <Router
-    sceneStyle={{ paddingTop: 85 }}
+    sceneStyle={{ paddingTop: 85, backgroundColor: '#fff' }}
     hideNavBar={false}
     navigationBarStyle={{
       backgroundColor: '#1A3461',
       borderBottomColor: 'transparent',
       borderBottomWidth: 65 }}
+    rightTitle={<Icon name="shopping-cart" size={24} color="#fff" />}
+    onRight={() => {}}
     titleStyle={{ color: '#fff', fontWeight: '700' }}
   >
     <Scene key='auth'>

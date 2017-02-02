@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Madoka } from 'react-native-textinput-effects';
-import { Button, Spinner } from './common';
+import Button from 'apsl-react-native-button';
+
+// components
+import { Spinner } from './common';
+
+// action creators
 import {
   emailChanged,
   passwordChanged,
@@ -18,22 +23,26 @@ class LoginForm extends Component {
   }
   onSigninPress() {
     const { email, password } = this.props;
-    // console.log(email.toLowerCase());
-    // const lower = email.toLowerCase();
-    // const lowerEmail = email.toLowerCase();
     this.props.signinUser({ email, password });
   }
+
+  // show button or spinner if loading
   renderSigninButton() {
+    const { buttonStyle, buttonTextStyle } = styles;
     return this.props.loading ?
       <Spinner size="large" /> :
-      <Button onPress={this.onSigninPress.bind(this)}>
+      <Button
+        style={buttonStyle}
+        textStyle={buttonTextStyle}
+        onPress={this.onSigninPress.bind(this)}
+      >
         Sign In
       </Button>;
   }
   render() {
     const { inputStyle } = styles;
     return (
-      <View style={{ top: 120, flex: 1, flexDirection: 'column' }}>
+      <View style={{ flex: 1, flexDirection: 'column' }}>
         <View style={inputStyle}>
           <Madoka
             label={'Email'}
@@ -78,6 +87,16 @@ const styles = {
     fontWeight: 'bold',
     paddingTop: 15,
     paddingLeft: 12
+  },
+  buttonStyle: {
+    marginLeft: 30,
+    marginRight: 30,
+    borderColor: '#008445',
+    backgroundColor: '#108445',
+    activeOpacity: '0.9',
+  },
+  buttonTextStyle: {
+    color: '#fff',
   }
 };
 

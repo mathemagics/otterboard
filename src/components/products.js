@@ -14,7 +14,7 @@ const CATEGORIES = {
 export default () => (
   <View style={styles.container}>
     {_.map(CATEGORIES, (val, index) => (
-      <TouchableHighlight>
+      <TouchableHighlight key={index}>
         <View style={{ ...styles.item, backgroundColor: val }}>
           <Text style={styles.text}>{index}</Text>
         </View>
@@ -33,7 +33,7 @@ const styles = {
     },
     item: {
         width: 120,
-        height: 100,
+        height: 80,
         justifyContent: 'center',
         alignItems: 'center'
     },
