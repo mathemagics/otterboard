@@ -29,7 +29,6 @@ export const signinUser = ({ email, password }) => (
     dispatch({ type: SIGNIN_ATTEMPT });
     axios.post(`${ROOT_URL}/signin`, { email, password })
     .then((response) => {
-      console.log('then', response);
       // save JWT TOKEN in async
       AsyncStorage.setItem(JWT_TOKEN, response.data.token);
       dispatch({ type: SIGNIN_USER_SUCCESS });

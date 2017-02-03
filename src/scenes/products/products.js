@@ -7,16 +7,9 @@ import Button from 'apsl-react-native-button';
 
 import ProductList from '../../components/productList';
 import GridList from '../../components/gridList';
-import { toggleFilter } from '../../actions';
+import { toggleFilter, selectProduct } from '../../actions';
 
-const CATEGORIES = {
-  meat: '#a23',
-  seafood: '#1cc',
-  dairy: '#ddd',
-  produce: '#2a2',
-  other: '#222',
-  nuts: '#c71',
-};
+import { CATEGORIES } from '../../data';
 
 const Products = (props) => (
   <View style={{ flex: 1, top: -20 }}>
@@ -30,8 +23,7 @@ const Products = (props) => (
 );
 const mapStateToProps = ({ products }) => {
   const { filter } = products;
-  console.log(filter);
   return { filter };
 };
 
-export default connect(mapStateToProps, { toggleFilter })(Products);
+export default connect(mapStateToProps, { toggleFilter, selectProduct })(Products);
