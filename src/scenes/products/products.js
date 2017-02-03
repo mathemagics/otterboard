@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import SearchBar from 'react-native-searchbar';
 import Button from 'apsl-react-native-button';
 
-import ProductList from '../components/productList';
-import GridList from '../components/gridList';
-import { toggleFilter } from '../actions';
+import ProductList from '../../components/productList';
+import GridList from '../../components/gridList';
+import { toggleFilter } from '../../actions';
 
 const CATEGORIES = {
   meat: '#a23',

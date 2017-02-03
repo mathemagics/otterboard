@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
 
-import ListPresentation from '../components/listPresentation';
+import ListPresentation from '../../components/listPresentation';
 
 export default class Purveyors extends Component {
    constructor(props) {
