@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import {
   rowStyle,
@@ -7,15 +7,21 @@ import {
   titleStyle,
   priceStyle,
   priceTextStyle,
+  purveyorStyle,
+  touchableStyle,
 } from './styles';
 
-export default () => (
-  <View style={rowStyle}>
-    <View style={contentStyle}>
-      <Text style={titleStyle}>Product</Text>
-    </View>
-    <View style={priceStyle}>
-      <Text style={priceTextStyle}>Price</Text>
-    </View>
-  </View>
+export default (props) => (
+      <View style={rowStyle}>
+      <TouchableOpacity style={touchableStyle} onPress={props.onPress}>
+      <View style={contentStyle}>
+        <Text style={titleStyle}>Avocados 12s</Text>
+        <Text style={purveyorStyle}>Yen Brothers</Text>
+        <Text style={purveyorStyle}>Sale In-Stock</Text>
+      </View>
+      <View style={priceStyle}>
+        <Text style={priceTextStyle}>$26.21</Text>
+      </View>
+      </TouchableOpacity>
+      </View>
 );

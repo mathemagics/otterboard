@@ -4,7 +4,7 @@ import ProductRow from '../productRow';
 
 import { containerStyle } from './styles';
 
-export default () => (
+export default (props) => (
     <View style={containerStyle}>
       <ProductRow />
       <ProductRow />
