@@ -1,9 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
-import ProductRow from './productRow';
+import ProductRow from '../productRow';
+
+import { containerStyle } from './styles';
 
 export default () => (
-    <View style={{ flex: 2, flexDirection: 'column', alignItems: 'flex-start', }}>
+    <View style={containerStyle}>
       <ProductRow />
       <ProductRow />
       <ProductRow />
