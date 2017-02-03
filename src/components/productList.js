@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import ProductRow from './productRow';
 
 export default () => (
-    <View style={{ flex: 2 }}>
-      <Text>Products</Text>
-      <Text>Products</Text>
-      <Text>Products</Text>
+    <View style={{ flex: 2, flexDirection: 'column', alignItems: 'flex-start', }}>
+      <ProductRow />
+      <ProductRow />
+      <ProductRow />
     </View>
 );
