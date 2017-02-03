@@ -16,9 +16,11 @@ export default (props) => (
           <Text style={titleStyle}>{props.product.name}</Text>
           <Text>{props.product.origin}</Text>
           <Text>{props.product.purveyor}</Text>
-          <Text>{props.product.price}</Text>
-          <Button onPress={props.closeModal}>Cancel</Button>
-          <Button>Add</Button>
+          <Text>${props.product.price}</Text>
+          <View>
+            <Button onPress={props.closeModal}>Cancel</Button>
+            <Button>Add</Button>
+          </View>
         </View>
 
     </View>

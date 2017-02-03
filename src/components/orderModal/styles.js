@@ -7,7 +7,7 @@ export const containerStyle = {
 };
  export const contentStyle = {
    flexDirection: 'column',
-   justifyContent: 'center',
+   justifyContent: 'space-between',
    padding: 10,
    height: 400,
    width: 250,
