@@ -8,7 +8,7 @@ import Button from 'apsl-react-native-button';
 import ProductList from '../../components/productList';
 import GridList from '../../components/gridList';
 import OrderModal from '../../components/orderModal';
-import { toggleFilter, selectProduct } from '../../actions';
+import { toggleFilter, selectProduct, closeProduct } from '../../actions';
 
 import { categories, productData } from '../../data';
 
@@ -21,7 +21,7 @@ class Products extends Component {
     const { selected, filter, } = this.props;
     return (
       <View style={{ flex: 1, top: -20 }}>
-        {selected && <OrderModal product={selected} />}
+        {selected && <OrderModal product={selected} closeModal={this.props.closeProduct} />}
         <SearchBar showOnLoad hideBack heightAdjust={-10} />
         <View style={{ flex: 1, flexDirection: 'column', marginTop: 80 }}>
           <Button onPress={this.props.toggleFilter}> Filter </Button>
@@ -38,4 +38,4 @@ const mapStateToProps = ({ products }) => {
   return { filter, selected };
 };
 
-export default connect(mapStateToProps, { toggleFilter, selectProduct })(Products);
+export default connect(mapStateToProps, { toggleFilter, selectProduct, closeProduct })(Products);

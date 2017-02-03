@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, Modal } from 'react-native';
+import Button from 'apsl-react-native-button';
 
-import { containerStyle } from './styles';
+import { containerStyle, contentStyle, titleStyle } from './styles';
 
 export default (props) => (
   <Modal
@@ -11,7 +12,15 @@ export default (props) => (
     onRequestClose={() => {}}
   >
     <View style={containerStyle}>
-        <Text>{props.product.name}</Text>
+        <View style={contentStyle}>
+          <Text style={titleStyle}>{props.product.name}</Text>
+          <Text>{props.product.origin}</Text>
+          <Text>{props.product.purveyor}</Text>
+          <Text>{props.product.price}</Text>
+          <Button onPress={props.closeModal}>Cancel</Button>
+          <Button>Add</Button>
+        </View>
+
     </View>
   </Modal>
 );
