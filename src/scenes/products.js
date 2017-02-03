@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import SearchBar from 'react-native-searchbar';
 import Button from 'apsl-react-native-button';
 
-import ProductList from './productList';
-import GridList from './gridList';
+import ProductList from '../components/productList';
+import GridList from '../components/gridList';
 import { toggleFilter } from '../actions';
 
 const CATEGORIES = {

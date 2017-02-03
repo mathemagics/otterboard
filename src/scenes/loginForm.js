@@ -5,7 +5,7 @@ import { Madoka } from 'react-native-textinput-effects';
 import Button from 'apsl-react-native-button';
 
 // components
-import { Spinner } from './common';
+import { Spinner } from '../components/common';
 
 // action creators
 import {
