@@ -5,14 +5,20 @@ import { Madoka } from 'react-native-textinput-effects';
 import Button from 'apsl-react-native-button';
 
 // components
-import { Spinner } from '../components/common';
+import { Spinner } from '../../components/common';
+
+import {
+  buttonStyle,
+  buttonTextStyle,
+  inputStyle,
+} from './styles';
 
 // action creators
 import {
   emailChanged,
   passwordChanged,
   signinUser,
-} from '../actions';
+} from '../../actions';
 
 class LoginForm extends Component {
   onEmailChange(text) {
@@ -28,7 +34,6 @@ class LoginForm extends Component {
 
   // show button or spinner if loading
   renderSigninButton() {
-    const { buttonStyle, buttonTextStyle } = styles;
     return this.props.loading ?
       <Spinner size="large" /> :
       <Button
@@ -41,7 +46,6 @@ class LoginForm extends Component {
       </Button>;
   }
   render() {
-    const { inputStyle } = styles;
     return (
       <View style={{ flex: 1, flexDirection: 'column' }}>
         <View style={inputStyle}>
@@ -75,30 +79,6 @@ class LoginForm extends Component {
     );
   }
 }
-const styles = {
-  inputStyle: {
-    height: 52,
-    marginTop: 30,
-    marginLeft: 30,
-    marginRight: 30,
-  },
-  textStyle: {
-    color: '#143D73',
-    fontSize: 18,
-    fontWeight: 'bold',
-    paddingTop: 15,
-    paddingLeft: 12
-  },
-  buttonStyle: {
-    marginLeft: 30,
-    marginRight: 30,
-    borderColor: '#008445',
-    backgroundColor: '#108445',
-  },
-  buttonTextStyle: {
-    color: '#fff',
-  }
-};
 
 const mapStateToProps = ({ auth }) => {
   const { email, password, loading, errors } = auth;
