@@ -1,4 +1,5 @@
 export const rowStyle = {
+  height: 80,
   paddingTop: 5,
   paddingBottom: 5,
   flexDirection: 'row',
@@ -9,7 +10,7 @@ export const rowStyle = {
 
 export const touchableStyle = {
   flex: 1,
-  flexDirection: 'row'
+  flexDirection: 'column'
 };
 
 export const contentStyle = {
@@ -31,5 +32,5 @@ export const priceStyle = {
   flex: 1,
 };
 export const priceTextStyle = {
-  fontSize: 26,
+  fontSize: 22,
 };

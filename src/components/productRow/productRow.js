@@ -11,17 +11,26 @@ import {
   touchableStyle,
 } from './styles';
 
-export default (props) => (
-      <View style={rowStyle}>
+export default (props) => {
+  console.log(props);
+  const { name, purveyor, sale, price } = props.product;
+  return (
+    <View style={rowStyle}>
       <TouchableOpacity style={touchableStyle} onPress={props.onPress}>
-      <View style={contentStyle}>
-        <Text style={titleStyle}>Avocados 12s</Text>
-        <Text style={purveyorStyle}>Yen Brothers</Text>
-        <Text style={purveyorStyle}>Sale In-Stock</Text>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
+      <Text style={titleStyle}>{name}</Text>
+    </View>
+      <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View style={contentStyle}>
+        <Text style={purveyorStyle}>{purveyor}</Text>
+        { sale && <Text style={purveyorStyle}>Sale</Text> }
+        </View>
+        <View style={priceStyle}>
+          <Text style={priceTextStyle}>${price}</Text>
+        </View>
       </View>
-      <View style={priceStyle}>
-        <Text style={priceTextStyle}>$26.21</Text>
-      </View>
+
       </TouchableOpacity>
-      </View>
-);
+    </View>
+  );
+};

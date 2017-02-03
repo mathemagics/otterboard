@@ -1,7 +1,8 @@
-export const products = {
+export const productData = {
   first: {
     name: 'Avocados pkg 24s',
     category: 'produce',
+    purveyor: 'Yen Brothers',
     origin: 'USA',
     sale: true,
     inStock: false,
@@ -10,6 +11,7 @@ export const products = {
   second: {
     name: 'Bananas pkg 12s',
     category: 'produce',
+    purveyor: 'Jim Koo',
     origin: 'Mexico',
     sale: false,
     inStock: true,
@@ -18,6 +20,7 @@ export const products = {
   third: {
     name: 'Sausage, Mergez pkg 12s',
     category: 'produce',
+    purveyor: 'Shaw Family Farms',
     origin: 'USA',
     sale: false,
     inStock: true,
