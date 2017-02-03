@@ -1,10 +1,14 @@
-import { TOGGLE_FILTER, SELECT_PRODUCT } from './types';
+import { TOGGLE_FILTER, SELECT_PRODUCT, CLOSE_PRODUCT, } from './types';
 
 export const toggleFilter = () => ({
   type: TOGGLE_FILTER,
 });
 
-export const selectProduct = (productId) => ({
+export const selectProduct = (product) => ({
   type: SELECT_PRODUCT,
-  payload: productId,
+  payload: product,
+});
+
+export const closeProduct = () => ({
+  type: CLOSE_PRODUCT,
 });

@@ -3,7 +3,7 @@ import { Text, View, Modal } from 'react-native';
 
 import { containerStyle } from './styles';
 
-export default () => (
+export default (props) => (
   <Modal
     transparent
     visible
@@ -11,7 +11,7 @@ export default () => (
     onRequestClose={() => {}}
   >
     <View style={containerStyle}>
-        <Text>OrderModal</Text>
+        <Text>{props.product.name}</Text>
     </View>
   </Modal>
 );
