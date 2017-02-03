@@ -1,8 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
 import SearchBar from 'react-native-searchbar';
+
 import ProductList from './productList';
 import GridList from './gridList';
+import toggleFilter from '../actions';
 
 const CATEGORIES = {
   meat: '#a23',
@@ -13,10 +16,16 @@ const CATEGORIES = {
   nuts: '#c71',
 };
 
-export default () => (
-  <View style={{ flex: 1, flexDirection: 'column', top: -20 }}>
-    <GridList categories={CATEGORIES} />
+const Products = (props) => (
+  <View style={{ flex: 1, flexDirection: 'column' }}>
+    {props.filter && <GridList categories={CATEGORIES} />}
     <SearchBar showOnLoad hideBack heightAdjust={-10} />
     <ProductList />
   </View>
 );
+const mapStateToProps = ({ products }) => {
+  const { filter } = products;
+  return { filter };
+};
+
+export default connect(mapStateToProps, { toggleFilter })(Products);

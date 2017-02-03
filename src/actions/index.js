@@ -1,1 +1,2 @@
-export * from './authActions';
+export * from './auth';
+export * from './products';
