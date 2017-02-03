@@ -3,21 +3,7 @@ import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'apsl-react-native-button';
 
-const styles = {
-  textStyle: {
-    width: 200,
-    fontFamily: 'Avenir',
-    fontWeight: '200',
-  },
-  buttonStyle: {
-    marginLeft: 20,
-    marginRight: 20,
-    borderColor: '#008445',
-    backgroundColor: '#ffffff'
-  },
-};
-
-const { buttonStyle, textStyle } = styles;
+import { buttonStyle, textStyle } from './styles';
 
 export default () => (
   <View style={{ flex: 1 }}>
