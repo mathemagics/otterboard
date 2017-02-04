@@ -17,14 +17,16 @@ const RouterComponent = () => (
       backgroundColor: '#1A3461',
       borderBottomColor: 'transparent',
       borderBottomWidth: 65 }}
-    rightTitle={<Icon name="shopping-cart" size={24} color="#fff" />}
-    onRight={() => Actions.cart()}
     titleStyle={{ color: '#fff', fontWeight: '700' }}
   >
     <Scene key='auth'>
       <Scene initial key='login' component={LoginForm} title="Please Login" />
     </Scene>
-    <Scene key='main'>
+    <Scene
+      key='main'
+      rightTitle={<Icon name="shopping-cart" size={24} color="#fff" />}
+      onRight={() => Actions.cart()}
+    >
       <Scene initial key='menu' component={MainMenu} title="Main Menu" />
       <Scene key='products' component={Products} title="Products" />
       <Scene key='purveyors' component={Purveyors} title="Purveyors" />
