@@ -6,7 +6,6 @@ import { containerStyle } from './styles';
 
 export default (props) => (
     <View style={containerStyle}>
-      {console.log(props)}
       {_.map(props.data, (product, key) => (
         <ProductRow key={key} product={product} onPress={props.onPress(product)} />
       ))}

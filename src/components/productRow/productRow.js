@@ -13,7 +13,6 @@ import {
 
 export default (props) => {
   const { name, purveyor, sale, price, } = props.product;
-  console.log('onpress', props.onPress);
   return (
     <View style={rowStyle}>
       <TouchableOpacity style={touchableStyle} onPress={props.onPress}>

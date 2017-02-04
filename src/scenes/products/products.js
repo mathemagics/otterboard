@@ -16,6 +16,7 @@ class Products extends Component {
 
 const mapStateToProps = ({ products }) => {
   const { data } = products;
+  console.log('data', data);
   return { data };
 };
 

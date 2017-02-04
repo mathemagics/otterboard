@@ -3,6 +3,7 @@ import {
    View,
    ListView,
    Text,
+   TouchableOpacity,
 } from 'react-native';
 
 export default (props) => (
@@ -12,9 +13,11 @@ export default (props) => (
         dataSource={props.dataSource}
         renderRow={
            (rowData) => (
+             <TouchableOpacity>
               <Text style={styles.listItem}>
                  {rowData}
               </Text>
+            </TouchableOpacity>
            )
         }
      />

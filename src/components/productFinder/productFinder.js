@@ -14,7 +14,6 @@ import { categories, productData } from '../../data';
 
 class Products extends Component {
   openModal(product) {
-    console.log(product);
     return () => { this.props.selectProduct(product); };
   }
   render() {
@@ -34,7 +33,6 @@ class Products extends Component {
 }
 const mapStateToProps = ({ products }) => {
   const { filter, selected } = products;
-  console.log(products);
   return { filter, selected };
 };
 

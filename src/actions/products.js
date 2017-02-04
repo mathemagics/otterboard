@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { AsyncStorage } from 'react-native';
+
 import {
   TOGGLE_FILTER,
   SELECT_PRODUCT,
@@ -5,6 +8,9 @@ import {
   GET_CART,
   GET_PRODUCTS,
 } from './types';
+
+const ROOT_URL = 'http://localhost:3090';
+const JWT_TOKEN = 'JWT_TOKEN';
 
 export const toggleFilter = () => ({
   type: TOGGLE_FILTER,
@@ -24,7 +30,17 @@ export const getCart = () => ({
   payload: null,
 });
 
-export const getProducts = () => ({
-  type: GET_PRODUCTS,
-  payload: null,
-});
+export const getProducts = () => {
+  return async function (dispatch) {
+    let authorization = await AsyncStorage.getItem(JWT_TOKEN);
+    axios.get(`${ROOT_URL}/products`, {
+      headers: { authorization },
+    })
+    .then(response => {
+      dispatch({
+        type: GET_PRODUCTS,
+        payload: response.data.products
+      });
+    });
+  }
+}
