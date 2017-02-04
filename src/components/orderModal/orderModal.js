@@ -28,7 +28,7 @@ export default (props) => (
           />
           <View>
             <Button onPress={props.closeModal}>Cancel</Button>
-            <Button>Add</Button>
+            <Button onPress={props.closeModal}>Add</Button>
           </View>
         </View>
 

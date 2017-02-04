@@ -1,10 +1,22 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Products from '../products';
+import { getCart } from '../../actions';
 
-import { containerStyle } from './styles';
+class Cart extends Component {
+  componentDidMount() {
+    this.props.getCart();
+  }
+    render() {
+      return (
+        <Products data={this.props.data} />
+      );
+    }
+}
 
-export default () => (
-  <View style={containerStyle}>
-    <Text>Cart</Text>
-  </View>
-);
+const mapStateToProps = ({ products }) => {
+  const { data } = products;
+  return { data };
+};
+
+export default connect(mapStateToProps, { getCart })(Cart);
