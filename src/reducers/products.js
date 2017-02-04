@@ -1,4 +1,10 @@
-import { TOGGLE_FILTER, SELECT_PRODUCT, CLOSE_PRODUCT, GET_CART } from '../actions/types';
+import {
+  TOGGLE_FILTER,
+  SELECT_PRODUCT,
+  CLOSE_PRODUCT,
+  GET_CART,
+  GET_PRODUCTS
+ } from '../actions/types';
 
 const INITIAL_STATE = { filter: false, selected: null };
 
@@ -12,6 +18,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, selected: null };
     case GET_CART:
       return { ...state, cart: action.payload };
+    case GET_PRODUCTS:
+      return { ...state, products: action.payload };
     default:
       return state;
   }

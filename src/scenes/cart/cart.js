@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Products from '../products';
+import ProductFinder from '../../components/productFinder';
 import { getCart } from '../../actions';
 
 class Cart extends Component {
@@ -9,7 +9,7 @@ class Cart extends Component {
   }
     render() {
       return (
-        <Products data={this.props.data} />
+        <ProductFinder data={this.props.data} />
       );
     }
 }
