@@ -10,14 +10,14 @@ import GridList from '../../components/gridList';
 import OrderModal from '../../components/orderModal';
 import { toggleFilter, selectProduct, closeProduct } from '../../actions';
 
-import { categories, productData } from '../../data';
+import { categories } from '../../data';
 
 class Products extends Component {
   openModal(product) {
     return () => { this.props.selectProduct(product); };
   }
   render() {
-    const { selected, filter, } = this.props;
+    const { selected, filter, data } = this.props;
     return (
       <View style={{ flex: 1, top: -20 }}>
         {selected && <OrderModal product={selected} closeModal={this.props.closeProduct} />}
@@ -25,7 +25,7 @@ class Products extends Component {
         <View style={{ flex: 1, flexDirection: 'column', marginTop: 80 }}>
           <Button onPress={this.props.toggleFilter}> Filter </Button>
           {filter && <GridList categories={categories} />}
-          <ProductList data={productData} onPress={this.openModal.bind(this)} />
+          <ProductList data={data} onPress={this.openModal.bind(this)} />
         </View>
       </View>
     );
