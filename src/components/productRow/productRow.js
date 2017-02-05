@@ -6,8 +6,6 @@ import {
   rowStyle,
   contentStyle,
   titleStyle,
-  priceStyle,
-  priceTextStyle,
   purveyorStyle,
   touchableStyle,
   imageStyle,

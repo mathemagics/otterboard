@@ -6,7 +6,7 @@ import Button from 'apsl-react-native-button';
 import { buttonStyle, textStyle } from './styles';
 
 export default () => (
-  <View style={{ flex: 1 }}>
+  <View style={{ flex: 1, backgroundColor: '#1A3461', justifyContent: 'center' }}>
     <Button style={buttonStyle} textStyle={textStyle} onPress={Actions.purveyors}>
       Purveyors
     </Button>
@@ -15,6 +15,9 @@ export default () => (
     </Button>
     <Button style={buttonStyle} textStyle={textStyle} onPress={Actions.orders}>
       Orders
+    </Button>
+    <Button style={buttonStyle} textStyle={textStyle} onPress={Actions.orders}>
+      Shopping Cart
     </Button>
   </View>
 );

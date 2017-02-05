@@ -47,8 +47,8 @@ class LoginForm extends Component {
   }
   render() {
     return (
-      <View style={{ flex: 1, flexDirection: 'column' }}>
-        <View style={inputStyle}>
+      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+        <View style={{ ...inputStyle , marginBottom: 30 }}>
           <Madoka
             label={'Email'}
             onChangeText={this.onEmailChange.bind(this)}

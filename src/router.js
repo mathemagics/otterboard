@@ -11,7 +11,6 @@ import Cart from './scenes/cart';
 
 const RouterComponent = () => (
   <Router
-    sceneStyle={{ paddingTop: 75, backgroundColor: '#fff' }}
     hideNavBar={false}
     navigationBarStyle={{
       backgroundColor: '#1A3461',
@@ -26,6 +25,7 @@ const RouterComponent = () => (
       key='main'
       rightTitle={<Icon name="shopping-cart" size={24} color="#fff" />}
       onRight={() => Actions.cart()}
+      style={{ backgroundColor: '#1A3461' }}
     >
       <Scene initial key='menu' component={MainMenu} title="Main Menu" />
       <Scene key='products' component={Products} title="Products" />

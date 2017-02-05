@@ -1,6 +1,5 @@
 export const inputStyle = {
   height: 52,
-  marginTop: 30,
   marginLeft: 30,
   marginRight: 30,
 };
