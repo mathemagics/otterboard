@@ -4,15 +4,20 @@ export default {
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   item: {
-    width: 120,
+    flex: 1,
     height: 80,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   text: {
     color: '#ffffff'
-  }
+  },
+  backgroundImage: {
+    flex: 1,
+    width: 120,
+    height: 80,
+  },
 };

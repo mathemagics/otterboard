@@ -1,16 +1,16 @@
 {
     "parser": "babel-eslint",
     "env": {
-        "browser": true
+      "browser": true
     },
     "plugins": [
-        "react"
+      "react"
     ],
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+      "rallycoding",
+      "eslint:recommended",
     ],
     "rules": {
-        "react/prop-types": [0]
+      "react/prop-types": [0]
     }
 }

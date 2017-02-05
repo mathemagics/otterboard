@@ -20,7 +20,7 @@ export const contentStyle = {
 };
 
 export const titleStyle = {
-  fontSize: 25,
+  fontSize: 17,
   fontWeight: '400',
 };
 
