@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import Adder from '../common/adder';
 
 import {
   rowStyle,
@@ -9,26 +10,21 @@ import {
   priceTextStyle,
   purveyorStyle,
   touchableStyle,
+  imageStyle,
 } from './styles';
 
 export default (props) => {
-  const { name, purveyor, sale, price, } = props.product;
+  const { name, purveyor, sale, price, origin } = props.product;
   return (
     <View style={rowStyle}>
       <TouchableOpacity style={touchableStyle} onPress={props.onPress}>
-          <View style={{ flex: 1, flexDirection: 'column' }}>
-      <Text style={titleStyle}>{name}</Text>
-    </View>
-      <View style={{ flex: 1, flexDirection: 'row' }}>
+        <Image style={imageStyle} source={require('../../images/avocados.jpg')} />
         <View style={contentStyle}>
-        <Text style={purveyorStyle}>{purveyor}</Text>
-        { sale && <Text style={purveyorStyle}>Sale</Text> }
+          <Text style={titleStyle}>{name}</Text>
+          <Text style={purveyorStyle}>{'Yen Bros'}</Text>
+          <Text style={purveyorStyle}>{origin}</Text>
+          <Adder price={price} />
         </View>
-        <View style={priceStyle}>
-          <Text style={priceTextStyle}>${price}</Text>
-        </View>
-      </View>
-
       </TouchableOpacity>
     </View>
   );

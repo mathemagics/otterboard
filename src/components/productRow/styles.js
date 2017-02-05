@@ -1,5 +1,5 @@
 export const rowStyle = {
-  height: 80,
+  height: 110,
   paddingTop: 5,
   paddingBottom: 5,
   flexDirection: 'row',
@@ -10,13 +10,13 @@ export const rowStyle = {
 
 export const touchableStyle = {
   flex: 1,
-  flexDirection: 'column'
+  flexDirection: 'row'
 };
 
 export const contentStyle = {
   flex: 3,
   flexDirection: 'column',
-  alignItems: 'flex-start',
+  justifyContent: 'space-between',
 };
 
 export const titleStyle = {
@@ -25,12 +25,15 @@ export const titleStyle = {
 };
 
 export const purveyorStyle = {
-  fontSize: 16,
+  fontSize: 12,
+  color: '#555',
 };
 
-export const priceStyle = {
+export const imageStyle = {
   flex: 1,
-};
-export const priceTextStyle = {
-  fontSize: 22,
-};
+  height: 90,
+  resizeMode: 'cover',
+  marginTop: 2,
+  marginRight: 10,
+  marginLeft: 5,
+}

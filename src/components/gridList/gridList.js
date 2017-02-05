@@ -8,9 +8,8 @@ export default (props) => (
   <View style={styles.container}>
     {_.map(props.categories, (val, index) => (
       <TouchableHighlight key={index}>
-
         <View style={{ ...styles.item, backgroundColor: val }}>
-          <Image source={require('../../images/meat.jpeg')} style={styles.backgroundImage} />
+          {/* <Image source={require('../../images/meat.jpeg')} style={styles.backgroundImage} /> */}
           <Text style={styles.text}>{index}</Text>
         </View>
       </TouchableHighlight>

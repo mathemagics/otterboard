@@ -10,15 +10,17 @@ export const countStyle = {
 
 
 export const adderStyle = {
+  marginTop: 5,
   flex:1,
   flexDirection: 'row',
 }
 
 export const valueStyle = {
-  flex: 2,
+  flex: 4,
   alignItems: 'center'
 }
 
 export const buttonStyle = {
   flex: 1,
+  borderRadius: 0,
 }

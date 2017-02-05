@@ -29,9 +29,9 @@ class Adder extends Component {
         </Button>
         <View style={valueStyle}>
           <Text style={countStyle}>
-            {`${count} x ${price}`}
+            {`$${count} x ${price}`}
           </Text>
-          <Text style={totalStyle}>{`${count * price}`}</Text>
+          <Text style={totalStyle}>{`$${count * price}`}</Text>
         </View>
         <Button style={buttonStyle} onPress={() => this.changeValue('+')}>
           <Icon name="plus" size={22} color="#000" />

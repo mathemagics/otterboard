@@ -7,8 +7,8 @@ export default {
     justifyContent: 'center',
   },
   item: {
-    flex: 1,
     height: 80,
+    width: 120,
     justifyContent: 'center',
     alignItems: 'center',
   },
