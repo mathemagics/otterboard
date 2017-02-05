@@ -53,7 +53,7 @@ class ProductFinder extends Component {
           heightAdjust={-10}
           handleChangeText={text => { this.handleSearch(text) }}
         />
-        <View style={{ flex: 1, flexDirection: 'column', marginTop: 80 }}>
+        <View style={{ flex: 1, flexDirection: 'column', marginTop: 65 }}>
           <Button onPress={this.props.toggleFilter}> Filter </Button>
           {filter && <GridList categories={categories} />}
           <ProductList data={this.state.currentProducts} onPress={this.openModal} />

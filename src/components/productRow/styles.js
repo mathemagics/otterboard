@@ -6,7 +6,16 @@ export const rowStyle = {
   marginLeft: 20,
   marginRight: 20,
   borderBottomWidth: 1,
+  borderColor: '#ccc',
 };
+
+export const leftStyle = {
+  flex: 1,
+  flexDirection: 'column',
+  marginTop: 2,
+  marginRight: 10,
+  marginLeft: 5,
+}
 
 export const touchableStyle = {
   flex: 1,
@@ -30,10 +39,8 @@ export const purveyorStyle = {
 };
 
 export const imageStyle = {
-  flex: 1,
-  height: 90,
+  height: 75,
+  width: 75,
   resizeMode: 'cover',
-  marginTop: 2,
-  marginRight: 10,
-  marginLeft: 5,
+  marginBottom: 5,
 }

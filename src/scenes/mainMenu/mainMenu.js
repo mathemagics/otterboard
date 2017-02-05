@@ -16,7 +16,7 @@ export default () => (
     <Button style={buttonStyle} textStyle={textStyle} onPress={Actions.orders}>
       Orders
     </Button>
-    <Button style={buttonStyle} textStyle={textStyle} onPress={Actions.orders}>
+    <Button style={buttonStyle} textStyle={textStyle} onPress={Actions.cart}>
       Shopping Cart
     </Button>
   </View>

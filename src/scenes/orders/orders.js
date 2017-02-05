@@ -14,7 +14,7 @@ export default class Orders extends Component {
    }
    render() {
       return (
-         <View>
+         <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop: 75 }}>
             <ListPresentation dataSource={this.state.dataSource} />
          </View>
       );

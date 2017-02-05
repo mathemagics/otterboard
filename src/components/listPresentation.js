@@ -1,13 +1,11 @@
 import React from 'react';
 import {
-   View,
    ListView,
    Text,
    TouchableOpacity,
 } from 'react-native';
 
 export default (props) => (
-  <View>
      <ListView
         style={styles.listContainer}
         dataSource={props.dataSource}
@@ -21,7 +19,6 @@ export default (props) => (
            )
         }
      />
-  </View>
 );
 
 const styles = {

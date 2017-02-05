@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import ProductFinder from '../../components/productFinder';
 import { getCart } from '../../actions';
@@ -9,7 +10,9 @@ class Cart extends Component {
   }
     render() {
       return (
-        <ProductFinder data={this.props.data} />
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop: 75, }}>
+          <ProductFinder data={this.props.data} />
+        </View>
       );
     }
 }
