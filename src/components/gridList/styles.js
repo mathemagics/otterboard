@@ -8,13 +8,15 @@ export default {
   },
   item: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     height: 40,
     width: 120,
     marginLeft: 20,
     marginRight: 20,
+
   },
   text: {
+    marginLeft: 10,
     color: '#999',
     textAlign: 'left',
   },

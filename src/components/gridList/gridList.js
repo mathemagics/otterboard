@@ -9,8 +9,8 @@ export default (props) => (
     {props.categories.map(val => (
       <TouchableHighlight key={val}>
         <View style={styles.item}>
-          <Text style={styles.text}>{val}</Text>
           <Icon name='circle-thin' size={17} />
+          <Text style={styles.text}>{val}</Text>
         </View>
       </TouchableHighlight>
     ))}

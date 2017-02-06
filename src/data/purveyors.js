@@ -1,3 +1,3 @@
 export const productPurveyors = [
-  'Yen Brothers', 'Jim Koo', 'Shaw Family Farms', 'Gordon Food Services', 'Sysco',
+  'Yen Brothers', 'Dairyland', 'Jim Koo', 'Shaw Family Farms', 'Gordon Food Services', 'Sysco',
 ];

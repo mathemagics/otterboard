@@ -6,4 +6,5 @@ export const productCategories = [
   'Other',
   'Frozen',
   'Canned',
+  'Dry Goods'
 ]
