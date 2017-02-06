@@ -11,6 +11,7 @@ import GridList from '../../components/gridList';
 import OrderModal from '../../components/orderModal';
 import { toggleFilter, selectProduct, closeProduct } from '../../actions';
 
+import { buttonStyle } from './styles';
 import { categories } from '../../data';
 
 class ProductFinder extends Component {
@@ -54,7 +55,10 @@ class ProductFinder extends Component {
           handleChangeText={text => { this.handleSearch(text) }}
         />
         <View style={{ flex: 1, flexDirection: 'column', marginTop: 65 }}>
-          <Button onPress={this.props.toggleFilter}> Filter </Button>
+          <View style={{ flexDirection: 'row' }} >
+            <Button style={buttonStyle} textStyle={{color: '#e91', fontWeight: '800' }} onPress={this.props.toggleFilter}>Categories</Button>
+            <Button style={buttonStyle} textStyle={{color: '#e91', fontWeight: '800' }} onPress={this.props.toggleFilter}>Purveyors</Button>
+          </View>
           {filter && <GridList categories={categories} />}
           <ProductList data={this.state.currentProducts} onPress={this.openModal} />
         </View>

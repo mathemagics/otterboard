@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { Madoka } from 'react-native-textinput-effects';
 import Button from 'apsl-react-native-button';
+import Otter from '../../images/otter.png';
 
 // components
 import { Spinner } from '../../components/common';
@@ -47,15 +48,16 @@ class LoginForm extends Component {
   }
   render() {
     return (
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', backgroundColor: '#143D73', }}>
+        <Image style={{ height: 80, width: 250, resizeMode: 'stretch', alignSelf: 'center', marginBottom: 30 }} source={Otter} />
         <View style={{ ...inputStyle , marginBottom: 30 }}>
           <Madoka
             label={'Email'}
             onChangeText={this.onEmailChange.bind(this)}
-            borderColor={'#aee2c9'}
+            borderColor={'#fff'}
             containerStyle={{ width: 200 }}
-            labelStyle={{ color: '#008445' }}
-            inputStyle={{ color: '#143D73' }}
+            labelStyle={{ color: '#fff' }}
+            inputStyle={{ color: '#fff' }}
             keyBoardType='email-address'
           />
         </View>
@@ -63,15 +65,15 @@ class LoginForm extends Component {
           <Madoka
             label={'Password'}
             onChangeText={this.onPasswordChange.bind(this)}
-            borderColor={'#aee2c9'}
+            borderColor={'#fff'}
             containerStyle={{ width: 200 }}
-            labelStyle={{ color: '#008445' }}
-            inputStyle={{ color: '#143D73' }}
+            labelStyle={{ color: '#fff' }}
+            inputStyle={{ color: '#fff' }}
             secureTextEntry
           />
         </View>
         <View style={{ height: 60, top: 30 }}>
-          <Text style={{ backgroundColor: '#fff' }}>{this.props.errors}</Text>
+          <Text>{this.props.errors}</Text>
           {/* show spinner if loading, otherwise button */}
           {this.renderSigninButton()}
         </View>

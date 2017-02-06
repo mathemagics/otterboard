@@ -6,7 +6,7 @@ export const inputStyle = {
 export const buttonStyle = {
   marginLeft: 30,
   marginRight: 30,
-  borderColor: '#008445',
+  borderColor: '#fff',
   backgroundColor: '#108445',
 };
 export const buttonTextStyle = {

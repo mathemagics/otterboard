@@ -8,7 +8,6 @@ export const countStyle = {
   color: '#555',
 }
 
-
 export const adderStyle = {
   marginTop: 5,
   flex:1,
@@ -23,4 +22,5 @@ export const valueStyle = {
 export const buttonStyle = {
   flex: 1,
   borderRadius: 0,
+  borderWidth: 0
 }
