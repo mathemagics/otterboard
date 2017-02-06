@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
 import ListPresentation from '../../components/listPresentation';
+import OrderRow from '../../components/orderRow';
 
 export default class Orders extends Component {
    constructor(props) {

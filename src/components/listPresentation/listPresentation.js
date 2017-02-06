@@ -5,6 +5,8 @@ import {
    TouchableOpacity,
 } from 'react-native';
 
+import styles from './styles';
+
 export default (props) => (
      <ListView
         style={styles.listContainer}
@@ -20,16 +22,3 @@ export default (props) => (
         }
      />
 );
-
-const styles = {
-  listContainer: {
-    paddingTop: 22,
-    marginLeft: 20,
-  },
-  listItem: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    fontSize: 26,
-    fontWeight: 'bold',
-  }
-};
