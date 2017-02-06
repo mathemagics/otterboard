@@ -9,8 +9,8 @@ import OrderModal from '../../components/orderModal';
 import SearchBar from '../../components/common/searchbar';
 import { toggleFilter, selectProduct, closeProduct } from '../../actions';
 
-import { buttonStyle } from './styles';
-import { categories } from '../../data';
+import { buttonStyle, buttonTextStyle } from './styles';
+import { productCategories, productPurveyors } from '../../data';
 
 class ProductFinder extends Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class ProductFinder extends Component {
     }
     this.openModal = this.openModal.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.selectFilter = this.selectFilter.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -41,8 +42,11 @@ class ProductFinder extends Component {
   openModal(product) {
     return () => { this.props.selectProduct(product); };
   }
+  selectFilter(type) {
+    return () => { this.props.toggleFilter(type); };
+  }
   render() {
-    const { selected, filter } = this.props;
+    const { selected, categories, purveyors } = this.props;
     return (
       <View style={{ flex: 1 }}>
         {selected && <OrderModal product={selected} closeModal={this.props.closeProduct} />}
@@ -51,10 +55,23 @@ class ProductFinder extends Component {
         />
         <View style={{ flex: 1, flexDirection: 'column', marginTop: 10 }}>
           <View style={{ flexDirection: 'row' }} >
-            <Button style={buttonStyle} textStyle={{color: '#e91', fontWeight: '800' }} onPress={this.props.toggleFilter}>Categories</Button>
-            <Button style={buttonStyle} textStyle={{color: '#e91', fontWeight: '800' }} onPress={this.props.toggleFilter}>Purveyors</Button>
+            <Button
+              style={buttonStyle}
+              textStyle={buttonTextStyle}
+              onPress={this.selectFilter('categories')}
+            >
+              Categories
+            </Button>
+            <Button
+              style={buttonStyle}
+              textStyle={buttonTextStyle}
+              onPress={this.selectFilter('purveyors')}
+            >
+              Purveyors
+            </Button>
           </View>
-          {filter && <GridList categories={categories} />}
+          {categories && <GridList categories={productCategories} />}
+          {purveyors && <GridList categories={productPurveyors} />}
           <ProductList data={this.state.currentProducts} onPress={this.openModal} />
         </View>
       </View>
@@ -62,8 +79,8 @@ class ProductFinder extends Component {
   }
 }
 const mapStateToProps = ({ products }) => {
-  const { filter, selected } = products;
-  return { filter, selected };
+  const { categories, purveyors, selected } = products;
+  return { categories, purveyors, selected };
 };
 
 export default connect(mapStateToProps, {

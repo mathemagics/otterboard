@@ -6,12 +6,12 @@ import {
   GET_PRODUCTS
  } from '../actions/types';
 
-const INITIAL_STATE = { filter: false, selected: null };
+const INITIAL_STATE = { categories: false, purveyors: false, selected: null };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TOGGLE_FILTER:
-      return { ...state, filter: !state.filter };
+      return { ...state, [action.payload]: !state[action.payload] };
     case SELECT_PRODUCT:
       return { ...state, selected: action.payload };
     case CLOSE_PRODUCT:

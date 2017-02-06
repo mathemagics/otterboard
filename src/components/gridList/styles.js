@@ -7,12 +7,15 @@ export default {
     justifyContent: 'center',
   },
   item: {
-    height: 80,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 40,
     width: 120,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginLeft: 20,
+    marginRight: 20,
   },
   text: {
-    color: '#ffffff'
+    color: '#999',
+    textAlign: 'left',
   },
 };

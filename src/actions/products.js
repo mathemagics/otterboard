@@ -11,8 +11,9 @@ import {
 const ROOT_URL = 'http://localhost:3090';
 const JWT_TOKEN = 'JWT_TOKEN';
 
-export const toggleFilter = () => ({
+export const toggleFilter = (type) => ({
   type: TOGGLE_FILTER,
+  payload: type,
 });
 
 export const selectProduct = (product) => ({
