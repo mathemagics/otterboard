@@ -1,4 +1,4 @@
-export const styles = {
+export default styles = {
   listContainer: {
     paddingTop: 22,
     marginLeft: 20,
