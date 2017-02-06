@@ -26,9 +26,11 @@ class SearchBar extends Component {
       <View style={containerStyle}>
           <Icon name='search' size={20} color="#aaa" />
         <TextInput
+          placeholder="Search Products..."
           style={inputStyle}
           onChangeText={this.onChange.bind(this)}
           value={this.state.text}
+          returnKeyType='search'
         />
         {
           this.state.text ?
