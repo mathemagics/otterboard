@@ -11,7 +11,10 @@ const INITIAL_STATE = { categories: false, purveyors: false, selected: null };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TOGGLE_FILTER:
-      return { ...state, [action.payload]: !state[action.payload] };
+      return {
+        ...state,
+        ...INITIAL_STATE,
+        [action.payload]: !state[action.payload] };
     case SELECT_PRODUCT:
       return { ...state, selected: action.payload };
     case CLOSE_PRODUCT:
