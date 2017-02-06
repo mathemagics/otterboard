@@ -49,7 +49,7 @@ class ProductFinder extends Component {
         <SearchBar
           onChange={text => { this.handleSearch(text); }}
         />
-        <View style={{ flex: 1, flexDirection: 'column', marginTop: 5 }}>
+        <View style={{ flex: 1, flexDirection: 'column', marginTop: 10 }}>
           <View style={{ flexDirection: 'row' }} >
             <Button style={buttonStyle} textStyle={{color: '#e91', fontWeight: '800' }} onPress={this.props.toggleFilter}>Categories</Button>
             <Button style={buttonStyle} textStyle={{color: '#e91', fontWeight: '800' }} onPress={this.props.toggleFilter}>Purveyors</Button>
