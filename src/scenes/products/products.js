@@ -10,7 +10,7 @@ class Products extends Component {
   }
     render() {
       return (
-        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', paddingTop: 75, }}>
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 75, }}>
           <ProductFinder data={this.props.data} />
         </View>
       );

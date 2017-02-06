@@ -24,7 +24,7 @@ export default (props) => {
     break;
     case 'Bananas 24pkg': imgSrc = Bananas;
     break;
-    case 'Eggs pkg 12': imgSrc = Eggs;
+    case 'pkg 12 Eggs': imgSrc = Eggs;
     break;
     case 'Merguez Sausage pkg 6': imgSrc = Sausages;
     break;

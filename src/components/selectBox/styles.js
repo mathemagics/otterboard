@@ -13,7 +13,7 @@ export const textStyle = {
 
 export const itemStyle = {
   width: 120,
-  height: 30,
+  height: 35,
   flexDirection: 'row',
   justifyContent: 'flex-start',
   marginLeft: 20,

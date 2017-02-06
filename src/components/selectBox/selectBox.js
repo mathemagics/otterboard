@@ -22,7 +22,7 @@ class SelectBox extends Component {
         <View style={itemStyle}>
           {
             this.state.selected ?
-            <Icon name='check' size={17} /> :
+            <Icon name='check' size={17} color='#108445' /> :
             <Icon name='circle-thin' size={17} />
           }
           <Text style={textStyle}>{this.props.children}</Text>

@@ -30,13 +30,15 @@ class ProductFinder extends Component {
     });
   }
   handleSearch(text) {
-    const reg = new RegExp(`${text}`,'gi')
-    const filteredProducts = this.props.data.filter(product => {
-      return reg.test(product.name);
+    const term = text.toLowerCase();
+    const { data } = this.props;
+    const filteredProducts = data.filter(product => {
+      const name =  product.name.toLowerCase();
+      return name.includes(term);
     });
     this.setState({
       searchTerm: text,
-      currentProducts: filteredProducts,
+      currentProducts: filteredProducts
     });
   }
   openModal(product) {
