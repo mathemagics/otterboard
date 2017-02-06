@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import _ from 'lodash';
-
-import SearchBar from 'react-native-searchbar';
 import Button from 'apsl-react-native-button';
 
 import ProductList from '../../components/productList';
 import GridList from '../../components/gridList';
 import OrderModal from '../../components/orderModal';
+import SearchBar from '../../components/common/searchbar';
 import { toggleFilter, selectProduct, closeProduct } from '../../actions';
 
 import { buttonStyle } from './styles';
@@ -32,7 +30,7 @@ class ProductFinder extends Component {
   }
   handleSearch(text) {
     const reg = new RegExp(`${text}`,'gi')
-    const filteredProducts = _.filter(this.props.data, product => {
+    const filteredProducts = this.props.data.filter(product => {
       return reg.test(product.name);
     });
     this.setState({
@@ -46,15 +44,12 @@ class ProductFinder extends Component {
   render() {
     const { selected, filter } = this.props;
     return (
-      <View style={{ flex: 1, top: -20 }}>
+      <View style={{ flex: 1 }}>
         {selected && <OrderModal product={selected} closeModal={this.props.closeProduct} />}
         <SearchBar
-          showOnLoad
-          hideBack
-          heightAdjust={-10}
-          handleChangeText={text => { this.handleSearch(text) }}
+          onChange={text => { this.handleSearch(text); }}
         />
-        <View style={{ flex: 1, flexDirection: 'column', marginTop: 65 }}>
+        <View style={{ flex: 1, flexDirection: 'column', marginTop: 5 }}>
           <View style={{ flexDirection: 'row' }} >
             <Button style={buttonStyle} textStyle={{color: '#e91', fontWeight: '800' }} onPress={this.props.toggleFilter}>Categories</Button>
             <Button style={buttonStyle} textStyle={{color: '#e91', fontWeight: '800' }} onPress={this.props.toggleFilter}>Purveyors</Button>

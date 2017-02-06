@@ -15,9 +15,4 @@ export default {
   text: {
     color: '#ffffff'
   },
-  backgroundImage: {
-    flex: 1,
-    width: 120,
-    height: 80,
-  },
 };

@@ -8,23 +8,26 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      term: ''
+      text: ''
     }
   }
   onChange(text) {
-      this.setState({ term: text });
+      this.setState({ text }, () => {
+        if (this.props.onChange) {
+          this.props.onChange(this.state.text);
+        }
+      });  
     }
   render() {
-    const { value, onChange } = this.props;
     return (
       <View style={containerStyle}>
         <Icon name='search' size={20} />
         <TextInput
           style={inputStyle}
-          onChange={onChange ? onChange : this.onChange}
-          value={value ? value : this.state.term}
+          onChangeText={this.onChange.bind(this)}
+          value={this.state.text}
         />
-        {this.state.term && <Icon name='times' size={20} />}
+        {<Icon name='times' size={20} />}
       </View>
     );
   }
