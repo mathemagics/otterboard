@@ -10,16 +10,14 @@ import {
   subStyle,
 } from './styles';
 
-export default ({ date, user, total}) => {
-  return (
-    <View style={containerStyle}>
-      <View style={leftStyle}>
-        <Text style={headerStyle}>{date}</Text>
-        <Text style={subStyle}>{user}</Text>
-      </View>
-      <View style={rightStyle}>
-        <Text style={priceStyle}>{total}</Text>
-      </View>
+export default ({ order: {date, user, total} }) => (
+  <View style={containerStyle}>
+    <View style={leftStyle}>
+      <Text style={headerStyle}>{date}</Text>
+      <Text style={subStyle}>{user}</Text>
     </View>
-  )
-}
+    <View style={rightStyle}>
+      <Text style={priceStyle}>${total}</Text>
+    </View>
+  </View>
+);

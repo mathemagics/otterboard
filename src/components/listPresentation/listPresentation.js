@@ -1,7 +1,6 @@
 import React from 'react';
 import {
    ListView,
-   Text,
    TouchableOpacity,
 } from 'react-native';
 
@@ -14,9 +13,7 @@ export default (props) => (
         renderRow={
            (rowData) => (
              <TouchableOpacity>
-              <Text style={styles.listItem}>
-                 {rowData}
-              </Text>
+                {rowData}
             </TouchableOpacity>
            )
         }

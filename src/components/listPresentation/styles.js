@@ -1,4 +1,4 @@
-export default styles = {
+export default {
   listContainer: {
     paddingTop: 22,
     marginLeft: 20,
@@ -6,7 +6,5 @@ export default styles = {
   listItem: {
     paddingLeft: 20,
     paddingRight: 20,
-    fontSize: 26,
-    fontWeight: 'bold',
   }
 };

@@ -2,6 +2,7 @@ export const containerStyle = {
   flex:1,
   flexDirection: 'row',
   justifyContent: 'space-between',
+  margin: 5,
 };
 
 export const leftStyle = {
@@ -22,6 +23,7 @@ export const headerStyle = {
 
 export const subStyle = {
   fontSize: 14,
+  color: '#555',
 };
 
 export const priceStyle = {
