@@ -88,6 +88,7 @@ class ProductFinder extends Component {
   }
 }
 const mapStateToProps = ({ products }) => {
+  console.log(products);
   const { categoriesOpen, purveyorsOpen, selected } = products;
   return { categoriesOpen, purveyorsOpen, selected };
 };

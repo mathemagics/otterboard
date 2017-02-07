@@ -1,5 +1,6 @@
 import {
   TOGGLE_FILTER,
+  CHANGE_FILTER,
   SELECT_PRODUCT,
   CLOSE_PRODUCT,
   GET_CART,
@@ -9,6 +10,8 @@ import {
 const INITIAL_STATE = {
   categoriesOpen: false,
   purveyorsOpen: false,
+  currentCategories: [],
+  currentPurveyors: [],
   selected: null
 };
 
@@ -19,6 +22,9 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         ...INITIAL_STATE,
         [action.payload]: !state[action.payload] };
+    case CHANGE_FILTER:
+      // changes the given filter with a new array
+      return { ...state, [action.payload.type]: action.payload.content }
     case SELECT_PRODUCT:
       return { ...state, selected: action.payload };
     case CLOSE_PRODUCT:

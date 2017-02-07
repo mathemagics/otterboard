@@ -6,6 +6,7 @@ import {
   SELECT_PRODUCT,
   CLOSE_PRODUCT,
   GET_PRODUCTS,
+  CHANGE_FILTER,
 } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
@@ -16,8 +17,9 @@ export const toggleFilter = (type) => ({
   payload: type,
 });
 
-export const changeFilter = (type, val) => ({
-  
+export const changeFilter = (filterType, content) => ({
+  type: CHANGE_FILTER,
+  payload: { filterType, content, },
 });
 
 export const selectProduct = (product) => ({
