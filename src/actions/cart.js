@@ -21,7 +21,17 @@ export const addToCart = (productId) => {
   }
 }
 
-export const getCart = () => ({
-  type: GET_CART,
-  payload: null,
-});
+export const getCart = () => {
+  return async function (dispatch) {
+    let authorization = await AsyncStorage.getItem(JWT_TOKEN);
+    axios.get(`${ROOT_URL}/purchases`, {
+      headers: { authorization },
+    })
+    .then(response => {
+      dispatch({
+        type: GET_CART,
+        payload: response.data.purchases
+      });
+    });
+  }
+}

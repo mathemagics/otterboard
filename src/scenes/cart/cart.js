@@ -17,8 +17,8 @@ class Cart extends Component {
     }
 }
 
-const mapStateToProps = ({ products }) => {
-  const { data } = products;
+const mapStateToProps = ({ cart }) => {
+  const { data } = cart;
   return { data };
 };
 
