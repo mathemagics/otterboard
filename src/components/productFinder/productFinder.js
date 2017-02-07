@@ -25,6 +25,7 @@ class ProductFinder extends Component {
     this.openModal = this.openModal.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.selectFilter = this.selectFilter.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({

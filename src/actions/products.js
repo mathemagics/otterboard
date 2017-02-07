@@ -17,10 +17,12 @@ export const toggleFilter = (type) => ({
   payload: type,
 });
 
-export const changeFilter = (filterType, content) => ({
-  type: CHANGE_FILTER,
-  payload: { filterType, content, },
-});
+export const changeFilter = (filterType, content) => {
+  return ({
+    type: CHANGE_FILTER,
+    payload: { filterType, content, },
+  });
+}
 
 export const selectProduct = (product) => ({
   type: SELECT_PRODUCT,

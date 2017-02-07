@@ -22,9 +22,11 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         ...INITIAL_STATE,
         [action.payload]: !state[action.payload] };
-    case CHANGE_FILTER:
+    case CHANGE_FILTER: {
       // changes the given filter with a new array
-      return { ...state, [action.payload.type]: action.payload.content }
+      const { filterType, content } = action.payload;
+      return { ...state, [filterType]: content }
+    }
     case SELECT_PRODUCT:
       return { ...state, selected: action.payload };
     case CLOSE_PRODUCT:
