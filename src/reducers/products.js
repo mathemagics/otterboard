@@ -7,9 +7,9 @@ import {
  } from '../actions/types';
 
 const INITIAL_STATE = {
-  categories: false,
-  purveyors: false,
-  selected: null 
+  categoriesOpen: false,
+  purveyorsOpen: false,
+  selected: null
 };
 
 export default (state = INITIAL_STATE, action) => {

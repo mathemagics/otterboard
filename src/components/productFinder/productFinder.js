@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import Button from 'apsl-react-native-button';
 
 import ProductList from '../../components/productList';
-import GridList from '../../components/gridList';
+import FilterList from '../../components/filterList';
 import OrderModal from '../../components/orderModal';
 import SearchBar from '../../components/common/searchbar';
-import { toggleFilter, selectProduct, closeProduct } from '../../actions';
+import { toggleFilter, selectProduct, closeProduct, changeFilter } from '../../actions';
 
 import { buttonStyle, buttonTextStyle } from './styles';
 import { productCategories, productPurveyors } from '../../data';
@@ -19,6 +19,8 @@ class ProductFinder extends Component {
     this.state= {
       searchTerm: '',
       currentProducts: this.props.data,
+      currentCategories: this.props.currentCateogies,
+      currentPurveyors: this.props.currentPurveyors,
     }
     this.openModal = this.openModal.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -26,7 +28,7 @@ class ProductFinder extends Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
-      currentProducts:nextProps.data,
+      currentProducts: nextProps.data,
     });
   }
   handleSearch(text) {
@@ -41,6 +43,11 @@ class ProductFinder extends Component {
       currentProducts: filteredProducts
     });
   }
+  handleFilter(type) {
+    return (val) => {
+      this.props.changeFilter(type, val)
+    }
+  }
   openModal(product) {
     return () => { this.props.selectProduct(product); };
   }
@@ -48,7 +55,7 @@ class ProductFinder extends Component {
     return () => { this.props.toggleFilter(type); };
   }
   render() {
-    const { selected, categories, purveyors } = this.props;
+    const { selected, categoriesOpen, purveyorsOpen } = this.props;
     return (
       <View style={{ flex: 1 }}>
         {selected && <OrderModal product={selected} closeModal={this.props.closeProduct} />}
@@ -60,20 +67,20 @@ class ProductFinder extends Component {
             <Button
               style={buttonStyle}
               textStyle={buttonTextStyle}
-              onPress={this.selectFilter('categories')}
+              onPress={this.selectFilter('categoriesOpen')}
             >
               Categories
             </Button>
             <Button
               style={buttonStyle}
               textStyle={buttonTextStyle}
-              onPress={this.selectFilter('purveyors')}
+              onPress={this.selectFilter('purveyorsOpen')}
             >
               Purveyors
             </Button>
           </View>
-          {categories && <GridList categories={productCategories} />}
-          {purveyors && <GridList categories={productPurveyors} />}
+          {categoriesOpen && <FilterList data={productCategories} onChange={this.handleFilter('currentCategories')} />}
+          {purveyorsOpen && <FilterList data={productPurveyors} onChange={this.handleFilter('currentPurveyors')} />}
           <ProductList data={this.state.currentProducts} onPress={this.openModal} />
         </View>
       </View>
@@ -81,10 +88,10 @@ class ProductFinder extends Component {
   }
 }
 const mapStateToProps = ({ products }) => {
-  const { categories, purveyors, selected } = products;
-  return { categories, purveyors, selected };
+  const { categoriesOpen, purveyorsOpen, selected } = products;
+  return { categoriesOpen, purveyorsOpen, selected };
 };
 
 export default connect(mapStateToProps, {
-  toggleFilter, selectProduct, closeProduct
+  toggleFilter, selectProduct, closeProduct, changeFilter,
 })(ProductFinder);

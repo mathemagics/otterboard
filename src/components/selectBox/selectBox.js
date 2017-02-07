@@ -13,7 +13,10 @@ class SelectBox extends Component {
   selectItem() {
     this.setState({
       selected: !this.state.selected,
-    })
+    });
+    if(this.props.onSelect) {
+      this.props.onSelect(this.props.children);
+    }
   }
   render() {
     return (
