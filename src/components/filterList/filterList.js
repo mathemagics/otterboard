@@ -14,16 +14,16 @@ class FilterList extends Component {
   handleSelect(val) {
     const { selected } = this.state;
     let result = [];
-
-    if (this.state.selected.includes(val)) {
+    const term = val.toLowerCase();
+    if (this.state.selected.includes(term)) {
       // if value already in array, remove it without mutating Array
-      const index = this.state.selected.indexOf(val);
+      const index = this.state.selected.indexOf(term);
       result = selected
         .slice(0, index)
         .concat(selected.slice(index + 1));
     } else {
       // add to array without mutating
-      result = selected.concat([val]);
+      result = selected.concat([term]);
     }
     this.setState({ selected: result, }, () => {
       if (this.props.onChange) {

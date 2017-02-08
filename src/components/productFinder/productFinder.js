@@ -19,8 +19,6 @@ class ProductFinder extends Component {
     this.state= {
       searchTerm: '',
       currentProducts: this.props.data,
-      currentCategories: this.props.currentCateogies,
-      currentPurveyors: this.props.currentPurveyors,
     }
     this.openModal = this.openModal.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -28,8 +26,15 @@ class ProductFinder extends Component {
     this.handleFilter = this.handleFilter.bind(this);
   }
   componentWillReceiveProps(nextProps) {
+    const { currentCategories } = nextProps;
+    console.log(currentCategories);
+    const currentProducts =  currentCategories.length !== 0 ?
+      nextProps.data.filter((product)=> {
+        return currentCategories.includes(product.category);
+      }) :
+      nextProps.data;
     this.setState({
-      currentProducts: nextProps.data,
+      currentProducts,
     });
   }
   handleSearch(text) {
@@ -89,9 +94,12 @@ class ProductFinder extends Component {
   }
 }
 const mapStateToProps = ({ products }) => {
-  console.log(products);
-  const { categoriesOpen, purveyorsOpen, selected } = products;
-  return { categoriesOpen, purveyorsOpen, selected };
+  const { categoriesOpen, purveyorsOpen,
+    selected, currentCategories,
+    currentPurveyors } = products;
+  return { categoriesOpen, purveyorsOpen,
+    selected, currentCategories,
+    currentPurveyors };
 };
 
 export default connect(mapStateToProps, {
