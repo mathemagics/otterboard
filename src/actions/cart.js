@@ -28,9 +28,12 @@ export const getCart = () => {
       headers: { authorization },
     })
     .then(response => {
+      const cartProducts = response.data.purchases.map((purchase) => {
+        return purchase._product;
+      });
       dispatch({
         type: GET_CART,
-        payload: response.data.purchases
+        payload: cartProducts,
       });
     });
   }

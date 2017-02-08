@@ -27,7 +27,6 @@ class ProductFinder extends Component {
   }
   componentWillReceiveProps(nextProps) {
     const { currentCategories } = nextProps;
-    console.log(currentCategories);
     const currentProducts =  currentCategories.length !== 0 ?
       nextProps.data.filter((product)=> {
         return currentCategories.includes(product.category);
