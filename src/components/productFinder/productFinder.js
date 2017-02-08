@@ -24,6 +24,7 @@ class ProductFinder extends Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.selectFilter = this.selectFilter.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
+    this.changeCart = this.changeCart.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     const { currentCategories } = nextProps;
@@ -36,8 +37,10 @@ class ProductFinder extends Component {
       currentProducts,
     });
   }
-  addProductToCart(product, quantity) {
-    this.props.modifyCart(product, quantity);
+  changeCart(product) {
+    return (quantity) => {
+      return this.props.modifyCart(product, quantity)
+    }
   }
   handleSearch(text) {
     const term = text.toLowerCase();
@@ -87,9 +90,17 @@ class ProductFinder extends Component {
               Purveyors
             </Button>
           </View>
-          {categoriesOpen && <FilterList data={productCategories} onChange={this.handleFilter('currentCategories')} />}
-          {purveyorsOpen && <FilterList data={productPurveyors} onChange={this.handleFilter('currentPurveyors')} />}
-          <ProductList data={this.state.currentProducts} onPress={this.openModal} />
+          {categoriesOpen &&
+            <FilterList data={productCategories} onChange={this.handleFilter('currentCategories')} />
+          }
+          {purveyorsOpen &&
+            <FilterList data={productPurveyors} onChange={this.handleFilter('currentPurveyors')} />
+          }
+          <ProductList
+            data={this.state.currentProducts}
+            onPress={this.openModal}
+            onModify={this.changeCart}
+          />
         </View>
       </View>
     );
