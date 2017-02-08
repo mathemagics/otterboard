@@ -1,5 +1,6 @@
 export const rowStyle = {
-  height: 110,
+  width: 330,
+  flex: 1,
   paddingTop: 5,
   paddingBottom: 5,
   flexDirection: 'row',
