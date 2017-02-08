@@ -7,6 +7,7 @@ import {
   CLOSE_PRODUCT,
   GET_PRODUCTS,
   CHANGE_FILTER,
+  MODIFY_CART,
 } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
@@ -45,5 +46,53 @@ export const getProducts = () => {
         payload: response.data.products
       });
     });
+  }
+}
+
+export const modifyCart = (productId, quantity) => {
+  return async function (dispatch) {
+    let authorization = await AsyncStorage.getItem(JWT_TOKEN);
+    switch (quantity) {
+      case 'add':
+      axios.post(`${ROOT_URL}/purchases`,
+      {
+        headers: { authorization },
+        productid: productId,
+      })
+      .then(response => {
+        dispatch({
+          type: MODIFY_CART,
+          payload: response,
+        });
+      });
+      break;
+      case 0:
+      axios.delete(`${ROOT_URL}/purchases`,
+      {
+        headers: { authorization },
+        productid: productId,
+      })
+      .then(response => {
+        dispatch({
+          type: MODIFY_CART,
+          payload: response,
+        });
+      });
+      break;
+      default:
+      axios.patch(`${ROOT_URL}/purchases`,
+      {
+        headers: { authorization },
+        productid: productId,
+        quantity: quantity,
+      })
+      .then(response => {
+        dispatch({
+          type: MODIFY_CART,
+          payload: response,
+        });
+      });
+      break;
+    }
   }
 }

@@ -36,6 +36,9 @@ class ProductFinder extends Component {
       currentProducts,
     });
   }
+  addProductToCart(product, quantity) {
+    this.props.modifyCart(product, quantity);
+  }
   handleSearch(text) {
     const term = text.toLowerCase();
     const { data } = this.props;

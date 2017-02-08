@@ -1,7 +1,7 @@
 // TODO
 
 [ ] refactor filter products
-[ ] force product search on component will mount for product finder.
 [ ] refactor currentProducts into redux
 [ ] add purveyor filter
 [ ] lowercase categories, purveyors
+[ ] fix rounding of prices

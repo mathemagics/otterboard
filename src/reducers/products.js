@@ -3,8 +3,8 @@ import {
   CHANGE_FILTER,
   SELECT_PRODUCT,
   CLOSE_PRODUCT,
-  GET_CART,
-  GET_PRODUCTS
+  GET_PRODUCTS,
+  MODIFY_CART,
  } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -31,10 +31,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, selected: action.payload };
     case CLOSE_PRODUCT:
       return { ...state, selected: null };
-    case GET_CART:
-      return { ...state, cart: action.payload };
     case GET_PRODUCTS:
       return { ...state, data: action.payload };
+    case MODIFY_CART:
+      return { ...state };
     default:
       return state;
   }
