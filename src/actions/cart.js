@@ -29,7 +29,8 @@ export const getCart = () => {
     })
     .then(response => {
       const cartProducts = response.data.purchases.map((purchase) => {
-        return purchase._product;
+        const { _product, quantity } = purchase;
+        return { ..._product, quantity };
       });
       dispatch({
         type: GET_CART,
