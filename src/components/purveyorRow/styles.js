@@ -4,6 +4,7 @@ export const rowStyle = {
   paddingTop: 5,
   paddingBottom: 5,
   flexDirection: 'row',
+  alignItems: 'center',
   marginLeft: 20,
   marginRight: 20,
   borderBottomWidth: 1,
@@ -14,10 +15,10 @@ export const imageStyle = {
   height: 75,
   width: 75,
   resizeMode: 'cover',
-  marginBottom: 5,
+  marginRight: 20,
 };
 
 export const titleStyle = {
-  fontSize: 17,
-  fontWeight: '400',
+  fontSize: 20,
+  fontWeight: '600',
 };
