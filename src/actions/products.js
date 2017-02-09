@@ -49,50 +49,50 @@ export const getProducts = () => {
   }
 }
 
-export const modifyCart = (productId, quantity) => {
+export const modifyCart = (productid, quantity, previous) => {
+  console.log('modifying cart', productid, quantity, previous);
   return async function (dispatch) {
     let authorization = await AsyncStorage.getItem(JWT_TOKEN);
-    switch (quantity) {
-      case 'add':
+    if (previous === 0 && quantity === 1) {
+      console.log('posting with auth', authorization);
+      axios.defaults.headers.common['authorization'] = authorization;
       axios.post(`${ROOT_URL}/purchases`,
       {
+        productid ,
+      })
+      .then(response => {
+        console.log('resp');
+        dispatch({
+          type: MODIFY_CART,
+          // payload: response,
+        });
+      });
+    } else if (quantity === 0) {
+      axios.delete(`${ROOT_URL}/purchases/${productid}`,
+      {
         headers: { authorization },
-        productid: productId,
+        productid,
       })
       .then(response => {
         dispatch({
           type: MODIFY_CART,
-          payload: response,
+          // payload: response,
         });
       });
-      break;
-      case 0:
-      axios.delete(`${ROOT_URL}/purchases`,
+    } else {
+      axios.patch(`${ROOT_URL}/purchases/${productid}`,
       {
         headers: { authorization },
-        productid: productId,
-      })
-      .then(response => {
-        dispatch({
-          type: MODIFY_CART,
-          payload: response,
-        });
-      });
-      break;
-      default:
-      axios.patch(`${ROOT_URL}/purchases`,
-      {
-        headers: { authorization },
-        productid: productId,
+        productid,
         quantity: quantity,
       })
       .then(response => {
+        console.log('patch');
         dispatch({
           type: MODIFY_CART,
-          payload: response,
+          // payload: response,
         });
       });
-      break;
     }
   }
 }

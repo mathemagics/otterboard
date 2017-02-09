@@ -9,15 +9,22 @@ class Adder extends Component {
   constructor(props) {
     super(props);
     this.changeValue = props.changeValue ? props.changeValue : this.changeValue;
+    const value = this.props.value ? this.props.value : 0;
     this.state = {
-      count: 0,
+      count: value,
+      prev: 0
     };
   }
   changeValue(type) {
     const newCount = type === '-' ? this.state.count -1 : this.state.count + 1;
     this.setState({
+      prev: this.state.count,
       count: newCount,
-    })
+    }, () => {
+      if (this.props.onModify) {
+        this.props.onModify(this.state.count, this.state.prev);
+      }
+    });
   }
   render() {
     const { count } = this.state

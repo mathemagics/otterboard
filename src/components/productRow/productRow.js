@@ -17,7 +17,7 @@ import {
 } from './styles';
 
 export default (props) => {
-  const { name, in_stock, price, origin } = props.product;
+  const { name, in_stock, price, origin, quantity } = props.product;
   let imgSrc;
   switch(name) {
     case 'Avocados 12pkg': imgSrc = Avocados;
@@ -41,7 +41,7 @@ export default (props) => {
           <Text style={titleStyle}>{name}</Text>
           <Text style={purveyorStyle}>{'Yen Bros'}</Text>
           <Text style={purveyorStyle}>{origin}</Text>
-          <Adder price={price} />
+          <Adder price={price} value={quantity} onModify={props.onModify} />
         </View>
       </TouchableOpacity>
     </View>

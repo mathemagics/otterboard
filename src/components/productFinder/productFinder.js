@@ -7,7 +7,7 @@ import ProductList from '../../components/productList';
 import FilterList from '../../components/filterList';
 import OrderModal from '../../components/orderModal';
 import SearchBar from '../../components/common/searchbar';
-import { toggleFilter, selectProduct, closeProduct, changeFilter } from '../../actions';
+import { toggleFilter, selectProduct, closeProduct, changeFilter, modifyCart } from '../../actions';
 
 import { buttonStyle, buttonTextStyle } from './styles';
 import { productCategories, productPurveyors } from '../../data';
@@ -38,8 +38,8 @@ class ProductFinder extends Component {
     });
   }
   changeCart(product) {
-    return (quantity) => {
-      return this.props.modifyCart(product, quantity)
+    return (quantity, previous) => {
+      return this.props.modifyCart(product, quantity, previous)
     }
   }
   handleSearch(text) {
@@ -116,5 +116,5 @@ const mapStateToProps = ({ products }) => {
 };
 
 export default connect(mapStateToProps, {
-  toggleFilter, selectProduct, closeProduct, changeFilter,
+  toggleFilter, selectProduct, closeProduct, changeFilter, modifyCart,
 })(ProductFinder);
