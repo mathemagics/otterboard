@@ -37,8 +37,8 @@ class ProductFinder extends Component {
       currentProducts,
     });
   }
-  changeCart(product) {
-    return (purchaseid, quantity, previous, ) => {
+  changeCart(product, purchaseid) {
+    return ( quantity, previous, ) => {
       return this.props.modifyCart(product, purchaseid, quantity, previous, )
     }
   }
