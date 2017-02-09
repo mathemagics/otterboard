@@ -59,10 +59,7 @@ export const modifyCart = (productid, quantity, previous, purchaseid) => {
         });
       });
     } else if (quantity === 0) {
-      axios.delete(`${ROOT_URL}/purchases/${purchaseid}`,
-      {
-        productid,
-      })
+      axios.delete(`${ROOT_URL}/purchases/${purchaseid}`)
       .then(response => {
         dispatch({
           type: MODIFY_CART,
