@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import axios from 'axios';
 
-import { GET_CART } from './types';
+import { GET_CART, CONFIRM_ORDER } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 const JWT_TOKEN = 'JWT_TOKEN';
@@ -24,3 +24,14 @@ export const getCart = () => {
     });
   }
 }
+
+export const confirmCart = () => {
+  return dispatch => {
+    axios.post(`${ROOT_URL}/orders`)
+    .then(() => {
+      dispatch({
+        type: CONFIRM_ORDER,
+      });
+    });
+  };
+};

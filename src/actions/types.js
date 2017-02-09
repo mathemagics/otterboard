@@ -16,3 +16,4 @@ export const MODIFY_CART = 'MODIFY_CART';
 //cart actions
 export const GET_CART = 'GET_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const CONFIRM_ORDER = 'CONFIRM_ORDER';

@@ -1,13 +1,15 @@
-import { GET_CART, ADD_TO_CART } from '../actions/types';
+import { GET_CART, CONFIRM_ORDER } from '../actions/types';
 
-const INITIAL_STATE = { };
+const INITIAL_STATE = {
+  data: [],
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_CART:
       return { ...state, data: action.payload };
-    case ADD_TO_CART:
-      return { ...state, cart: action.payload };
+    case CONFIRM_ORDER:
+      return { ...state, data: [], };
     default:
       return state;
   }

@@ -7,4 +7,4 @@ export const productCategories = [
   'Frozen',
   'Poultry',
   'Dry Goods'
-]
+];

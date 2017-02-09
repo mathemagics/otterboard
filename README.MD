@@ -1,6 +1,5 @@
 // TODO
 
-[ ] delete, patch cart
 [ ] multiples in cart. see: TODO BIGLY get cart into products
 
 [ ] refactor filter products
