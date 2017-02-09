@@ -94,7 +94,7 @@ class ProductFinder extends Component {
             <FilterList data={productCategories} onChange={this.handleFilter('currentCategories')} />
           }
           {purveyorsOpen &&
-            <FilterList data={productPurveyors} onChange={this.handleFilter('currentPurveyors')} />
+            <FilterList data={productPurveyors.map(x => x.name)} onChange={this.handleFilter('currentPurveyors')} />
           }
           <ProductList
             data={this.state.currentProducts}
