@@ -37,7 +37,6 @@ export default (state = INITIAL_STATE, action) => {
     case MODIFY_CART:
       return { ...state };
     case ADD_TO_CART: {
-      console.log(state.data)
       const { _id, productid } = action.payload;
       const newData = state.data.map( product => {
         if (product.productid === productid) {
@@ -46,7 +45,6 @@ export default (state = INITIAL_STATE, action) => {
           return { ...product };
         }
       });
-      console.log(newData);
       return { ...state, data: newData}
     }
     default:

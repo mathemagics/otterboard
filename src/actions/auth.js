@@ -30,6 +30,7 @@ export const signinUser = ({ email, password }) => (
     axios.post(`${ROOT_URL}/signin`, { email, password })
     .then((response) => {
       // save JWT TOKEN in async
+      axios.defaults.headers.common['authorization'] = response.data.token;
       AsyncStorage.setItem(JWT_TOKEN, response.data.token);
       dispatch({ type: SIGNIN_USER_SUCCESS });
       // route to main screen
