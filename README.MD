@@ -5,3 +5,4 @@
 [ ] add purveyor filter
 [ ] lowercase categories, purveyors
 [ ] fix rounding of prices
+[ ] refactor jwt headers to global.

@@ -38,8 +38,8 @@ class ProductFinder extends Component {
     });
   }
   changeCart(product) {
-    return (quantity, previous) => {
-      return this.props.modifyCart(product, quantity, previous)
+    return (purchaseid, quantity, previous, ) => {
+      return this.props.modifyCart(product, purchaseid, quantity, previous, )
     }
   }
   handleSearch(text) {

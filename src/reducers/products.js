@@ -5,6 +5,7 @@ import {
   CLOSE_PRODUCT,
   GET_PRODUCTS,
   MODIFY_CART,
+  ADD_TO_CART,
  } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -35,6 +36,19 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, data: action.payload };
     case MODIFY_CART:
       return { ...state };
+    case ADD_TO_CART: {
+      console.log(state.data)
+      const { _id, productid } = action.payload;
+      const newData = state.data.map( product => {
+        if (product.productid === productid) {
+          return { ...product, purchaseid: _id };
+        } else {
+          return { ...product };
+        }
+      });
+      console.log(newData);
+      return { ...state, data: newData}
+    }
     default:
       return state;
   }

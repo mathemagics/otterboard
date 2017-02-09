@@ -8,6 +8,7 @@ import {
   GET_PRODUCTS,
   CHANGE_FILTER,
   MODIFY_CART,
+  ADD_TO_CART,
 } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
@@ -49,7 +50,7 @@ export const getProducts = () => {
   }
 }
 
-export const modifyCart = (productid, quantity, previous) => {
+export const modifyCart = (productid, quantity, previous, purchaseid) => {
   console.log('modifying cart', productid, quantity, previous);
   return async function (dispatch) {
     let authorization = await AsyncStorage.getItem(JWT_TOKEN);
@@ -61,14 +62,14 @@ export const modifyCart = (productid, quantity, previous) => {
         productid ,
       })
       .then(response => {
-        console.log('resp');
+        console.log('resp', response);
         dispatch({
-          type: MODIFY_CART,
-          // payload: response,
+          type: ADD_TO_CART,
+          payload: response.data,
         });
       });
     } else if (quantity === 0) {
-      axios.delete(`${ROOT_URL}/purchases/${productid}`,
+      axios.delete(`${ROOT_URL}/purchases/${purchaseid}`,
       {
         headers: { authorization },
         productid,
@@ -76,21 +77,20 @@ export const modifyCart = (productid, quantity, previous) => {
       .then(response => {
         dispatch({
           type: MODIFY_CART,
-          // payload: response,
+          payload: response,
         });
       });
     } else {
-      axios.patch(`${ROOT_URL}/purchases/${productid}`,
+      axios.patch(`${ROOT_URL}/purchases/${purchaseid}`,
       {
         headers: { authorization },
-        productid,
         quantity: quantity,
       })
       .then(response => {
         console.log('patch');
         dispatch({
           type: MODIFY_CART,
-          // payload: response,
+          payload: response,
         });
       });
     }
