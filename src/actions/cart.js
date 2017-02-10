@@ -38,7 +38,7 @@ export const confirmCart = () => {
 
 export const emptyCart = () => {
   return dispatch => {
-    axios.post(`${ROOT_URL}/deletepurchases`)
+    axios.delete(`${ROOT_URL}/deletepurchases`)
     .then(() => {
       dispatch({
         type: EMPTY_CART,

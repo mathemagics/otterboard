@@ -23,7 +23,7 @@ class Cart extends Component {
                 Confirm
               </Text>
             </Button>
-            <Button style={buttonStyle}>
+            <Button style={buttonStyle} onPress={this.props.emptyCart}>
               <Text style={buttonTextStyle}>
                 Clear Order
               </Text>
