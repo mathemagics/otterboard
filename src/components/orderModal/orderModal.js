@@ -23,7 +23,6 @@ export default (props) => (
             <Button onPress={props.closeModal}>Add</Button>
           </View>
         </View>
-
     </View>
   </Modal>
 );
