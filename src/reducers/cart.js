@@ -1,4 +1,4 @@
-import { GET_CART, CONFIRM_ORDER } from '../actions/types';
+import { GET_CART, CONFIRM_ORDER, EMPTY_CART } from '../actions/types';
 
 const INITIAL_STATE = {
   data: [],
@@ -10,6 +10,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, data: action.payload };
     case CONFIRM_ORDER:
       return { ...state, data: [], };
+    case EMPTY_CART:
+      return { ...state, data: [], }
     default:
       return state;
   }

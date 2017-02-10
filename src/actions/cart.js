@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import axios from 'axios';
 
-import { GET_CART, CONFIRM_ORDER } from './types';
+import { GET_CART, CONFIRM_ORDER, EMPTY_CART } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 const JWT_TOKEN = 'JWT_TOKEN';
@@ -35,3 +35,14 @@ export const confirmCart = () => {
     });
   };
 };
+
+export const emptyCart = () => {
+  return dispatch => {
+    axios.post(`${ROOT_URL}/deletepurchases`)
+    .then(() => {
+      dispatch({
+        type: EMPTY_CART,
+      });
+    });
+  };
+}

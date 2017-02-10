@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Button from 'apsl-react-native-button';
 
 import ProductFinder from '../../components/productFinder';
-import { getCart, confirmCart, clearCart } from '../../actions';
+import { getCart, confirmCart, emptyCart } from '../../actions';
 import { buttonStyle, buttonTextStyle, containerStyle, controlStyle } from './styles';
 
 class Cart extends Component {
@@ -40,4 +40,4 @@ const mapStateToProps = ({ cart }) => {
   return { data };
 };
 
-export default connect(mapStateToProps, { getCart, confirmCart, clearCart })(Cart);
+export default connect(mapStateToProps, { getCart, confirmCart, emptyCart })(Cart);
