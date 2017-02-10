@@ -45,13 +45,14 @@ export const getProducts = () => {
   }
 };
 
-export const modifyCart = (productid, purchaseid, quantity, previous ) => {
+export const modifyCart = (product, quantity, previous ) => {
   return dispatch => {
-    console.log('prod:', productid, 'purch:', purchaseid, 'q:', quantity, 'p:', previous);
+    const { _id, purchaseid } = product;
+    console.log('prod:', _id, 'purch:', purchaseid, 'q:', quantity, 'p:', previous);
     if (previous === 0 && quantity === 1) {
       axios.post(`${ROOT_URL}/purchases`,
       {
-        productid,
+        productid: _id,
       })
       .then(response => {
         dispatch({

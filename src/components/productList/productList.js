@@ -11,7 +11,7 @@ export default (props) => {
          key={key}
          product={product}
          onPress={props.onPress(product)}
-         onModify={props.onModify(product._id, product.purchaseid)}
+         onModify={props.onModify(product)}
        />
      )));
   const renderRow = (rowData) => (
