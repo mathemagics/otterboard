@@ -5,6 +5,7 @@ import Eggs from '../../images/eggs.jpeg';
 import Sausages from '../../images/sausages.jpeg';
 import Bananas from '../../images/bananas.jpeg';
 import Avocados from '../../images/avocados.jpeg';
+import Yams from '../../images/yams.jpeg';
 
 import {
   rowStyle,
@@ -27,6 +28,8 @@ export default (props) => {
     case 'pkg 12 Eggs': imgSrc = Eggs;
     break;
     case 'Merguez Sausage pkg 6': imgSrc = Sausages;
+    break;
+    case 'Yams 12pkg': imgSrc = Yams;
     break;
     default: break;
   }
