@@ -6,6 +6,7 @@ export const rowStyle = {
   flexDirection: 'row',
   marginLeft: 20,
   marginRight: 20,
+  backgroundColor: '#fff',
   borderBottomWidth: 1,
   borderColor: '#ccc',
 };
