@@ -25,6 +25,7 @@ class ProductFinder extends Component {
     this.selectFilter = this.selectFilter.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
     this.changeCart = this.changeCart.bind(this);
+    this.deletePurchase = this.deletePurchase.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     const { currentCategories } = nextProps;
@@ -62,6 +63,11 @@ class ProductFinder extends Component {
   openModal(product) {
     return () => { this.props.selectProduct(product); };
   }
+  deletePurchase(purchaseid) {
+    return () => {
+      this.props.deleteProduct(purchaseid);
+    }
+  }
   selectFilter(type) {
     return () => { this.props.toggleFilter(type); };
   }
@@ -94,6 +100,7 @@ class ProductFinder extends Component {
             data={this.state.currentProducts}
             onPress={this.openModal}
             onModify={this.changeCart}
+            onDelete={this.deletePurchase}
           />
         </View>
       </View>
