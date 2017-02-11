@@ -7,6 +7,8 @@
 [ ] add purveyor filter
 [ ] lowercase categories, purveyors
 [ ] persist filters.
+[ ] negative adder
+[ ] refactor cart and product actions/reducers
 
 
 // TODO BIGLY
