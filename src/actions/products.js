@@ -6,8 +6,7 @@ import {
   CLOSE_PRODUCT,
   GET_PRODUCTS,
   CHANGE_FILTER,
-  MODIFY_CART,
-  ADD_TO_CART,
+  CHANGE_SEARCH,
 } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
@@ -17,12 +16,15 @@ export const toggleFilter = (type) => ({
   payload: type,
 });
 
-export const changeFilter = (filterType, content) => {
-  return ({
+export const changeFilter = (filterType, content) => ({
     type: CHANGE_FILTER,
     payload: { filterType, content, },
   });
-}
+
+export const changeSearch = (text) => ({
+  type: CHANGE_SEARCH,
+  payload: text,
+});
 
 export const selectProduct = (product) => ({
   type: SELECT_PRODUCT,
@@ -44,40 +46,3 @@ export const getProducts = () => {
     });
   }
 };
-
-export const modifyCart = (product, quantity, previous ) => {
-  return dispatch => {
-    const { _id, purchaseid } = product;
-    if (previous === 0 && quantity === 1) {
-      axios.post(`${ROOT_URL}/purchases`,
-      {
-        productid: _id,
-      })
-      .then(response => {
-        dispatch({
-          type: ADD_TO_CART,
-          payload: response.data,
-        });
-      });
-    } else if (quantity === 0) {
-      axios.delete(`${ROOT_URL}/purchases/${purchaseid}`)
-      .then(response => {
-        dispatch({
-          type: MODIFY_CART,
-          payload: response,
-        });
-      });
-    } else {
-      axios.patch(`${ROOT_URL}/purchases/${purchaseid}`,
-      {
-        quantity: quantity,
-      })
-      .then(response => {
-        dispatch({
-          type: MODIFY_CART,
-          payload: response,
-        });
-      });
-    }
-  }
-}

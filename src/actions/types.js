@@ -11,10 +11,11 @@ export const TOGGLE_FILTER = 'TOGGLE_FILTER';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 export const SELECT_PRODUCT = 'SELECT_PRODUCT';
 export const CLOSE_PRODUCT = 'CLOSE_PRODUCT';
-export const MODIFY_CART = 'MODIFY_CART';
+export const CHANGE_SEARCH = 'CHANGE_SEARCH';
 
 //cart actions
 export const GET_CART = 'GET_CART';
+export const MODIFY_CART = 'MODIFY_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const CONFIRM_ORDER = 'CONFIRM_ORDER';
 export const EMPTY_CART = 'EMPTY_CART';

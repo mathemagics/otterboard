@@ -7,7 +7,11 @@ import ProductList from '../../components/productList';
 import FilterList from '../../components/filterList';
 import OrderModal from '../../components/orderModal';
 import SearchBar from '../../components/common/searchbar';
-import { toggleFilter, selectProduct, closeProduct, changeFilter, modifyCart } from '../../actions';
+
+import {
+  toggleFilter, selectProduct, closeProduct, changeFilter, modifyCart, changeSearch
+} from '../../actions';
+import { getFilteredProducts } from '../../reducers';
 
 import { buttonStyle, buttonTextStyle } from './styles';
 import { productCategories, productPurveyors } from '../../data';
@@ -15,11 +19,6 @@ import { productCategories, productPurveyors } from '../../data';
 class ProductFinder extends Component {
   constructor(props) {
     super(props);
-
-    this.state= {
-      searchTerm: '',
-      currentProducts: this.props.data,
-    }
     this.openModal = this.openModal.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.selectFilter = this.selectFilter.bind(this);
@@ -27,38 +26,21 @@ class ProductFinder extends Component {
     this.changeCart = this.changeCart.bind(this);
     this.deletePurchase = this.deletePurchase.bind(this);
   }
-  componentWillReceiveProps(nextProps) {
-    const { currentCategories } = nextProps;
-    const currentProducts =  currentCategories.length !== 0 ?
-      nextProps.data.filter((product)=> {
-        return currentCategories.includes(product.category);
-      }) :
-      nextProps.data;
-    this.setState({
-      currentProducts,
-    });
-  }
-  changeCart(product ) {
+  changeCart(product) {
     return ( quantity, previous, ) => {
       return this.props.modifyCart(product, quantity, previous )
     }
   }
-  handleSearch(text) {
-    const term = text.toLowerCase();
-    const { data } = this.props;
-    const filteredProducts = data.filter(product => {
-      const name =  product.name.toLowerCase();
-      return name.includes(term);
-    });
-    this.setState({
-      searchTerm: text,
-      currentProducts: filteredProducts
-    });
+  selectFilter(type) {
+    return () => { this.props.toggleFilter(type); };
   }
   handleFilter(type) {
     return (val) => {
       this.props.changeFilter(type, val)
     }
+  }
+  handleSearch(text) {
+    this.props.changeSearch(text);
   }
   openModal(product) {
     return () => { this.props.selectProduct(product); };
@@ -68,15 +50,13 @@ class ProductFinder extends Component {
       this.props.deleteProduct(purchaseid);
     }
   }
-  selectFilter(type) {
-    return () => { this.props.toggleFilter(type); };
-  }
+
   render() {
-    const { selected, categoriesOpen, purveyorsOpen } = this.props;
+    const { selected, categoriesOpen, purveyorsOpen, products } = this.props;
     return (
       <View style={{ flex: 1 }}>
         {selected && <OrderModal product={selected} closeModal={this.props.closeProduct} />}
-        <SearchBar onChange={text => { this.handleSearch(text); }} />
+        <SearchBar onChange={text => this.handleSearch(text)} />
         <View style={{ flex: 1, flexDirection: 'column', marginTop: 10 }}>
           <View style={{ flexDirection: 'row' }} >
             <Button
@@ -97,7 +77,7 @@ class ProductFinder extends Component {
             <FilterList data={productPurveyors.map(x => x.name)} onChange={this.handleFilter('currentPurveyors')} />
           }
           <ProductList
-            data={this.state.currentProducts}
+            data={products}
             onPress={this.openModal}
             onModify={this.changeCart}
             onDelete={this.deletePurchase}
@@ -107,15 +87,11 @@ class ProductFinder extends Component {
     );
   }
 }
-const mapStateToProps = ({ products }) => {
-  const { categoriesOpen, purveyorsOpen,
-    selected, currentCategories,
-    currentPurveyors } = products;
-  return { categoriesOpen, purveyorsOpen,
-    selected, currentCategories,
-    currentPurveyors };
+const mapStateToProps = (state) => {
+  return { ...state.products, products: getFilteredProducts(state)};
 };
 
 export default connect(mapStateToProps, {
   toggleFilter, selectProduct, closeProduct, changeFilter, modifyCart,
+  changeSearch,
 })(ProductFinder);
