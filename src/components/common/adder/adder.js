@@ -16,7 +16,14 @@ class Adder extends Component {
     };
   }
   changeValue(type) {
-    const newCount = type === '-' ? this.state.count -1 : this.state.count + 1;
+    let newCount;
+    if (type === '-' && this.state.count != 0) {
+      newCount = this.state.count - 1;
+    } else if (type === '+') {
+      newCount = this.state.count + 1;
+    } else {
+      newCount = this.state.count;
+    }
     this.setState({
       prev: this.state.count,
       count: newCount,
