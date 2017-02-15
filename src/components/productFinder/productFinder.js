@@ -53,6 +53,7 @@ class ProductFinder extends Component {
 
   render() {
     const { selected, categoriesOpen, purveyorsOpen, products } = this.props;
+    console.log('render products', products)
     return (
       <View style={{ flex: 1 }}>
         {selected && <OrderModal product={selected} closeModal={this.props.closeProduct} />}
@@ -86,7 +87,7 @@ class ProductFinder extends Component {
             <FilterList data={productPurveyors.map(x => x.name)} onChange={this.handleFilter('currentPurveyors')} />
           }
           <ProductList
-            data={products}
+            data={getFilteredProducts(this.props.data)}
             onPress={this.openModal}
             onModify={this.changeCart}
             onDelete={this.deletePurchase}
@@ -97,7 +98,8 @@ class ProductFinder extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  return { ...state.products, products: getFilteredProducts(state)};
+  console.log(state.products.data);
+  return { ...state.products };
 };
 
 export default connect(mapStateToProps, {

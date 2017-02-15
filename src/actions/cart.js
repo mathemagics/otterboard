@@ -18,6 +18,7 @@ export const getCart = () => {
         const { _product, quantity, _id } = purchase;
         return { ..._product, purchaseid: _id, quantity };
       });
+      console.log(cartProducts);
       dispatch({
         type: SET_PRODUCTS,
         payload: cartProducts,

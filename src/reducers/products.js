@@ -22,7 +22,8 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SET_PRODUCTS:
-      return { ...state, data: action.payload, back: false };
+    console.log(action.payload);
+      return { ...state, data: action.payload };
     case TOGGLE_FILTER:
       return {
         ...state,
