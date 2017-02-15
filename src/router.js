@@ -31,7 +31,7 @@ const RouterComponent = () => (
       <Scene key='products' component={Products} title="Products" />
       <Scene key='purveyors' component={Purveyors} title="Purveyors" />
       <Scene key='orders' component={Orders} title="Orders" />
-      <Scene key='cart' component={Cart} title="Shopping Cart" onBack={() => {Actions.menu();}} />
+      <Scene key='cart' component={Cart} title="Shopping Cart" />
     </Scene>
 </Router>
 );
