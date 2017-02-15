@@ -24,7 +24,6 @@ class ProductFinder extends Component {
     this.selectFilter = this.selectFilter.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
     this.changeCart = this.changeCart.bind(this);
-    this.deletePurchase = this.deletePurchase.bind(this);
   }
   changeCart(product) {
     return ( quantity, previous, ) => {
@@ -50,7 +49,6 @@ class ProductFinder extends Component {
       this.props.deleteProduct(purchaseid);
     }
   }
-
   render() {
     const { selected, categoriesOpen, purveyorsOpen, products } = this.props;
     console.log('render products', products)
@@ -90,7 +88,6 @@ class ProductFinder extends Component {
             data={getFilteredProducts(this.props.data)}
             onPress={this.openModal}
             onModify={this.changeCart}
-            onDelete={this.deletePurchase}
           />
         </View>
       </View>

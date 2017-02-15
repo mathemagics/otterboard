@@ -17,14 +17,3 @@ export const rowStyle = {
   borderBottomWidth: 1,
   borderColor: '#ccc',
 };
-
-export const buttonStyle = {
-  width: 100,
-  alignSelf: 'center',
-  borderRadius: 0,
-  borderWidth: 0,
-}
-export const buttonTextStyle = {
-  color: '#f22',
-  fontSize: 22,
-}
