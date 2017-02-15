@@ -5,16 +5,16 @@ import ProductFinder from '../../components/productFinder';
 import { getProducts } from '../../actions';
 
 class Products extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.getProducts();
   }
-    render() {
-      return (
-        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 75, }}>
-          <ProductFinder data={this.props.data} />
-        </View>
-      );
-    }
+  render() {
+    return (
+      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 75, }}>
+        <ProductFinder data={this.props.data} />
+      </View>
+    );
+  }
 }
 
 const mapStateToProps = ({ products }) => {

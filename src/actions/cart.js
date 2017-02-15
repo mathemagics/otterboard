@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {
-  GET_CART,
+  SET_PRODUCTS,
   CONFIRM_ORDER,
   EMPTY_CART,
   ADD_TO_CART,
@@ -19,7 +19,7 @@ export const getCart = () => {
         return { ..._product, purchaseid: _id, quantity };
       });
       dispatch({
-        type: GET_CART,
+        type: SET_PRODUCTS,
         payload: cartProducts,
       });
     });

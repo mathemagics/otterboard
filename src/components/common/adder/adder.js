@@ -53,7 +53,6 @@ class Adder extends Component {
       </View>
     )
   }
-
 }
 
 export default Adder;

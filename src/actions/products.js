@@ -4,12 +4,24 @@ import {
   TOGGLE_FILTER,
   SELECT_PRODUCT,
   CLOSE_PRODUCT,
-  GET_PRODUCTS,
+  SET_PRODUCTS,
   CHANGE_FILTER,
   CHANGE_SEARCH,
 } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
+
+export const getProducts = () => {
+  return dispatch => {
+    axios.get(`${ROOT_URL}/products`)
+    .then(response => {
+      dispatch({
+        type: SET_PRODUCTS,
+        payload: response.data.products
+      });
+    });
+  }
+};
 
 export const toggleFilter = (type) => ({
   type: TOGGLE_FILTER,
@@ -34,15 +46,3 @@ export const selectProduct = (product) => ({
 export const closeProduct = () => ({
   type: CLOSE_PRODUCT,
 });
-
-export const getProducts = () => {
-  return dispatch => {
-    axios.get(`${ROOT_URL}/products`)
-    .then(response => {
-      dispatch({
-        type: GET_PRODUCTS,
-        payload: response.data.products
-      });
-    });
-  }
-};

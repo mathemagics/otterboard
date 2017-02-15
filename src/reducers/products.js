@@ -4,7 +4,7 @@ import {
   CHANGE_SEARCH,
   SELECT_PRODUCT,
   CLOSE_PRODUCT,
-  GET_PRODUCTS,
+  SET_PRODUCTS,
   ADD_TO_CART,
  } from '../actions/types';
 
@@ -15,11 +15,14 @@ const INITIAL_STATE = {
   currentCategories: [],
   currentPurveyors: [],
   search: '',
+  back: false,
   selected: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case SET_PRODUCTS:
+      return { ...state, data: action.payload, back: false };
     case TOGGLE_FILTER:
       return {
         ...state,
@@ -36,8 +39,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, selected: action.payload };
     case CLOSE_PRODUCT:
       return { ...state, selected: null };
-    case GET_PRODUCTS:
-      return { ...state, data: action.payload };
+
     case ADD_TO_CART: {
       const { _id, productid } = action.payload;
       const newData = state.data.map( product => {

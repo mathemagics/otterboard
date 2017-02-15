@@ -59,21 +59,30 @@ class ProductFinder extends Component {
         <SearchBar onChange={text => this.handleSearch(text)} />
         <View style={{ flex: 1, flexDirection: 'column', marginTop: 10 }}>
           <View style={{ flexDirection: 'row' }} >
+
             <Button
               style={buttonStyle}
               textStyle={buttonTextStyle}
               onPress={this.selectFilter('categoriesOpen')}
-            >Categories</Button>
+            >
+              Categories
+            </Button>
+
             <Button
               style={buttonStyle}
               textStyle={buttonTextStyle}
               onPress={this.selectFilter('purveyorsOpen')}
-            >Purveyors</Button>
+            >
+              Purveyors
+            </Button>
+
           </View>
-          {categoriesOpen &&
+          {
+            categoriesOpen &&
             <FilterList data={productCategories} onChange={this.handleFilter('currentCategories')} />
           }
-          {purveyorsOpen &&
+          {
+            purveyorsOpen &&
             <FilterList data={productPurveyors.map(x => x.name)} onChange={this.handleFilter('currentPurveyors')} />
           }
           <ProductList
